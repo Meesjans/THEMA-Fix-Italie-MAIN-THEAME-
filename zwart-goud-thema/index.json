@@ -1,0 +1,238 @@
+{
+  "sections": {
+    "main": {
+      "type": "hero",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Luxe_boetiek_met_Sterling_Co.png",
+            "mobile_image": "shopify://shop_images/Vriendschap_in_de_boetiek.png",
+            "eyebrow": "Up to 70% off",
+            "heading": "Early Black Friday",
+            "text": "<p>Shop our Black Friday prices early</p>",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1"
+      ],
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "desktop_height": 560,
+        "mobile_height": 420,
+        "enable_parallax": false,
+        "auto_change_slides": false,
+        "change_images_every": 5,
+        "lazy_load_images": false,
+        "desktop_natural_height": false,
+        "desktop_text_vertical": "center",
+        "desktop_text_horizontal": "left",
+        "desktop_heading_size": 80,
+        "desktop_body_size": 16,
+        "mobile_natural_height": false,
+        "mobile_text_vertical": "end",
+        "mobile_text_horizontal": "center",
+        "mobile_heading_size": 38,
+        "mobile_body_size": 13
+      }
+    },
+    "custom_liquid_Dpt7bU": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Custom liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<div class=\"la-mq\" aria-label=\"Spring sale - up to 70% off\"><div class=\"la-mq__track\"><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span></div><div class=\"la-mq__track\" aria-hidden=\"true\"><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span><span class=\"la-mq__item\">SPRING SALE - UP TO 70% OFF</span></div></div><style>html body .custom-liquid-section:has(.la-mq){padding-top:0 !important;padding-bottom:0 !important}.la-mq{margin-top:0;display:flex;overflow:hidden;background:#fff;padding:14px 0;user-select:none}.la-mq__track{display:flex;flex:0 0 auto;min-width:100%;animation:la-mq 60s linear infinite}.la-mq__item{flex:0 0 auto;padding:0 30px;font-family:Montserrat,-apple-system,Arial,sans-serif;font-size:17px;font-weight:500;letter-spacing:.01em;color:#000;white-space:nowrap;text-transform:uppercase}@keyframes la-mq{from{transform:translateX(0)}to{transform:translateX(-100%)}}@media (prefers-reduced-motion:reduce){.la-mq__track{animation:none}}@media (max-width:749px){.la-mq{padding:12px 0}.la-mq__item{font-size:15px;padding:0 22px}}</style>"
+      }
+    },
+    "bf_teaser": {
+      "type": "sterling-bf-teaser",
+      "settings": {
+        "eyebrow": "Black Friday Early Access",
+        "heading": "Black Friday, a week before everyone else.",
+        "text": "<p>VIP access opens Monday 16 November, 7pm AEDT. The list closes Sunday 15 November.</p>",
+        "open_datetime": "2026-11-16T19:00:00+11:00",
+        "timer_label": "Early access opens in",
+        "button_label": "Join the VIP list",
+        "button_link": "shopify://pages/early-access",
+        "background": "#ede3d9",
+        "gold": "#c9a24a",
+        "button_color": "#00b67a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "style": "black_gold"
+      }
+    },
+    "featured_collection_6L6pr8": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "heading": "BESTSELLING",
+        "collection": "long-blouses-1",
+        "products_per_row": 5,
+        "rows": 1,
+        "enable_swipe_on_mobile": true,
+        "show_view_all": true,
+        "view_all_position": "below",
+        "view_all_style": "secondary",
+        "show_section_divider": false
+      }
+    },
+    "featured_collection_4K6Gix": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "heading": "DRESSES COLLECTION",
+        "collection": "favorite-dresses",
+        "products_per_row": 4,
+        "rows": 1,
+        "enable_swipe_on_mobile": true,
+        "show_view_all": true,
+        "view_all_position": "header",
+        "view_all_style": "link",
+        "show_section_divider": false
+      }
+    },
+    "iwt_why": {
+      "type": "image-with-text",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "scheme-1",
+        "image": "shopify://shop_images/Warme_boutiqueportretten_bij_Sterling_Co.png",
+        "subheading": "",
+        "heading": "Hi, we're Sterling & Co. Melbourne! 🤍",
+        "text": "<p>Spring is here at Sterling & Co. Melbourne! 🌸</p><p>Thanks to your amazing support, we're welcoming the new season with fresh styles while staying true to what makes us special.</p><p>To celebrate, enjoy <strong>up to 70% OFF during our Early Black Friday Sale</strong>, for a limited time.</p><p>Discover your favourites and shop them before they're gone. 🤍</p>",
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "primary",
+        "text_alignment": "center",
+        "image_size": "66",
+        "image_ratio": "natural",
+        "column_gap": 60,
+        "padding_top": 75,
+        "padding_bottom": 75,
+        "image_max_height": 0,
+        "vertical_align": "center",
+        "layout": "left",
+        "show_section_divider": false,
+        "lazy_load_images": true
+      }
+    },
+    "featured_collection_JYUpF7": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "heading": "NEW IN BLOUSES",
+        "collection": "floral-blouces",
+        "products_per_row": 4,
+        "rows": 1,
+        "enable_swipe_on_mobile": true,
+        "show_view_all": true,
+        "view_all_position": "below",
+        "view_all_style": "secondary",
+        "show_section_divider": false
+      }
+    },
+    "featured_collection_PaMaLq": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "heading": "Jewellery",
+        "collection": "copper-bracelets",
+        "products_per_row": 5,
+        "rows": 1,
+        "enable_swipe_on_mobile": true,
+        "show_view_all": true,
+        "view_all_position": "below",
+        "view_all_style": "secondary",
+        "show_section_divider": false
+      }
+    },
+    "trust_points_38iJ9i": {
+      "type": "trust-points",
+      "blocks": {
+        "point_eEzTit": {
+          "type": "point",
+          "settings": {
+            "icon": "shipping",
+            "icon_size": 30,
+            "title": "FREE FAST SHIPPING",
+            "text": "<p>We are offering free shipping only today.</p>"
+          }
+        },
+        "point_9y9a7w": {
+          "type": "point",
+          "settings": {
+            "icon": "return",
+            "icon_size": 30,
+            "title": "30-DAY MONEY BACK GUARANTEE",
+            "text": "<p>At Sterling & Co. Melbourne you can shop with peace of mind thanks to our 30-day money-back guarantee. Simply return your items within 30 days.</p>"
+          }
+        },
+        "point_4DMPf3": {
+          "type": "point",
+          "settings": {
+            "icon": "secure",
+            "icon_size": 30,
+            "title": "SECURE PAYMENT",
+            "text": "<p>Your payment information is processed securely.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "point_eEzTit",
+        "point_9y9a7w",
+        "point_4DMPf3"
+      ],
+      "name": "Trust points",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "icon_color": "#000000",
+        "custom_typography": true,
+        "title_font": "nunito_sans_n6",
+        "title_size_desktop": 16,
+        "title_size_mobile": 15.2,
+        "title_letter_spacing": 0.5,
+        "text_font": "nunito_sans_n4",
+        "text_size_desktop": 14.7,
+        "text_size_mobile": 14.1,
+        "text_letter_spacing": 0.3,
+        "subheading": "",
+        "heading": "",
+        "mobile_layout": "carousel",
+        "show_section_divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_Dpt7bU",
+    "bf_teaser",
+    "featured_collection_6L6pr8",
+    "featured_collection_4K6Gix",
+    "iwt_why",
+    "featured_collection_JYUpF7",
+    "featured_collection_PaMaLq",
+    "trust_points_38iJ9i"
+  ]
+}

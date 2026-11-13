@@ -1,0 +1,158 @@
+{%- comment -%}
+  Sterling: Black Friday VIP strip for the homepage, directly under the hero.
+  Beige band: green eyebrow, bold heading, short text, live countdown and a green button to the VIP page.
+  Also styles the hero right above it (big bold sale heading, green "Shop now" button), only when they sit together.
+{%- endcomment -%}
+{%- liquid
+  assign sid = section.id
+  assign open_iso = section.settings.open_datetime | strip
+  assign hf700 = settings.type_heading_font | font_modify: 'weight', '700'
+  assign hf800 = settings.type_heading_font | font_modify: 'weight', '800'
+  assign hf600 = settings.type_heading_font | font_modify: 'weight', '600'
+-%}
+<style>
+  {%- if hf600 %}{{ hf600 | font_face: font_display: 'swap' }}{% endif -%}
+  {%- if hf700 %}{{ hf700 | font_face: font_display: 'swap' }}{% endif -%}
+  {%- if hf800 %}{{ hf800 | font_face: font_display: 'swap' }}{% endif %}
+
+  /* ---- Hero right above this strip: rustige, goed leesbare tekst op elke foto ---- */
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__overlay { display: block !important; opacity: 1 !important; background: linear-gradient(90deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.40) 36%, rgba(0,0,0,.12) 64%, rgba(0,0,0,0) 100%) !important; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__content { width: min(100%, 800px); padding: 40px 24px 40px max(24px, 7vw); color: #fff; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) :is(.hero-slide__eyebrow, .hero-slide__heading, .hero-slide__text) { color: #fff !important; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__eyebrow { margin: 0 0 14px; font-family: {{ settings.type_heading_font.family }}, -apple-system, Arial, sans-serif; font-size: 15px !important; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; opacity: 1; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__heading { margin: 0; font-family: {{ settings.type_heading_font.family }}, -apple-system, Arial, sans-serif; font-size: calc(var(--hero-desktop-heading-size) * var(--heading-scale, 1)) !important; font-weight: {% if hf800 %}800{% else %}700{% endif %}; line-height: .95; letter-spacing: -.01em; text-transform: uppercase; overflow-wrap: normal; word-break: keep-all; hyphens: manual; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__text { max-width: none; margin-top: 18px; font-family: {{ settings.type_heading_font.family }}, -apple-system, Arial, sans-serif; font-size: calc(var(--hero-desktop-body-size) * var(--body-scale, 1)) !important; font-weight: 700; line-height: 1.3; letter-spacing: .06em; text-transform: uppercase; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__text p { margin: 0; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 170px; margin-top: 24px; padding: 0 28px; font-family: {{ settings.type_heading_font.family }}, -apple-system, Arial, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .06em; line-height: 1; text-transform: uppercase; color: #fff !important; background: {{ section.settings.button_color }} !important; border: 0 !important; border-radius: 3px; box-shadow: 0 6px 18px rgba(0,0,0,.18); text-shadow: none; transition: filter .2s; }
+  html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__button:hover { filter: brightness(.94); }
+  @media (max-width: 749px) {
+    html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__overlay { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.10) 34%, rgba(0,0,0,.52) 64%, rgba(0,0,0,.70) 100%) !important; }
+    html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__content { width: 100%; padding: 0 22px 26px; text-align: center; justify-self: center; }
+    html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__eyebrow { margin-bottom: 8px; font-size: 12.5px !important; letter-spacing: .22em; }
+    html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__heading { font-size: calc(var(--hero-mobile-heading-size) * var(--heading-scale, 1)) !important; line-height: 1; }
+    html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__text { margin-top: 10px; font-size: calc(var(--hero-mobile-body-size) * var(--body-scale, 1)) !important; letter-spacing: .08em; }
+    html body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__button { min-height: 44px; min-width: 0; width: 100%; max-width: 260px; margin-top: 16px; padding: 0 22px; font-size: 14px; }
+  }
+
+  /* ---- VIP strip ---- */
+  #bft-{{ sid }} { padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px; font-family: {{ settings.type_heading_font.family }}, -apple-system, Arial, sans-serif; }
+  #bft-{{ sid }} * { box-sizing: border-box; }
+  #bft-{{ sid }} { grid-column: 1 / -1; width: 100%; }
+  #bft-{{ sid }} .bft { padding: 24px 18px 26px; color: #111; background: {{ section.settings.background }}; border-bottom: 1px solid rgba(0,0,0,.06); text-align: center; }
+  #bft-{{ sid }} .bft__inner { max-width: 1260px; margin: 0 auto; }
+  #bft-{{ sid }} .bft__eyebrow { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: {{ section.settings.button_color }}; }
+  #bft-{{ sid }} .bft__heading { margin: 0 0 6px; font-family: inherit; font-size: 20px; line-height: 1.25; font-weight: 700; letter-spacing: 0; text-transform: none; color: #111; text-wrap: balance; }
+  #bft-{{ sid }} .bft__text { margin: 0; font-size: 15px; line-height: 1.5; color: #111; }
+  #bft-{{ sid }} .bft__text p { margin: 0; }
+  #bft-{{ sid }} .bft__side { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 14px; }
+  #bft-{{ sid }} .bft-cd { display: flex; justify-content: center; gap: 6px; margin: 0; }
+  #bft-{{ sid }} .bft-cd__item { width: 54px; padding: 7px 2px 6px; text-align: center; background: #fff; border: 1px solid #D6CABC; }
+  #bft-{{ sid }} .bft-cd__num { display: block; font-size: 20px; line-height: 1.05; font-weight: 700; color: #111; font-variant-numeric: tabular-nums; }
+  #bft-{{ sid }} .bft-cd__unit { display: block; margin-top: 3px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #111; }
+  #bft-{{ sid }} .bft__btn { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 52px; padding: 12px 22px; font-family: inherit; font-size: 16px; font-weight: 700; letter-spacing: .04em; text-align: center; text-transform: uppercase; text-decoration: none; white-space: nowrap; color: #fff; background: {{ section.settings.button_color }}; border-radius: 2px; transition: filter .2s; }
+  #bft-{{ sid }} .bft__btn:hover { filter: brightness(.94); color: #fff; }
+  #bft-{{ sid }} .bft__btn:focus-visible { outline: 3px solid #111; outline-offset: 2px; }
+  @media (min-width: 990px) {
+    #bft-{{ sid }} .bft { padding: 34px 40px; text-align: left; }
+    #bft-{{ sid }} .bft__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 40px; }
+    #bft-{{ sid }} .bft__heading { font-size: 30px; }
+    #bft-{{ sid }} .bft__text { font-size: 16.5px; max-width: 760px; }
+    #bft-{{ sid }} .bft__side { flex-direction: row; gap: 28px; margin-top: 0; }
+    #bft-{{ sid }} .bft-cd { gap: 10px; }
+    #bft-{{ sid }} .bft-cd__item { width: 62px; padding: 9px 2px 8px; }
+    #bft-{{ sid }} .bft-cd__num { font-size: 24px; }
+    #bft-{{ sid }} .bft__btn { width: auto; min-width: 218px; min-height: 58px; padding: 12px 28px; }
+  }
+  @media (max-width: 359.98px) {
+    #bft-{{ sid }} .bft-cd__item { width: 48px; }
+    #bft-{{ sid }} .bft-cd__num { font-size: 18px; }
+  }
+</style>
+{%- if section.settings.style == 'black_gold' -%}
+<style>
+  /* ---- Sterling: black & gold Early Black Friday look (hero + VIP strip) ---- */
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__overlay { background: linear-gradient(90deg, rgba(8,8,8,.78) 0%, rgba(8,8,8,.55) 38%, rgba(8,8,8,.15) 68%, rgba(8,8,8,0) 100%) !important; }
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) :is(.hero-slide__eyebrow, .hero-slide__heading, .hero-slide__text) { text-shadow: none !important; }
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__eyebrow { color: #d4b26a !important; letter-spacing: .3em !important; }
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__heading { color: #d4b26a !important; background: linear-gradient(180deg, #f3e2b0 0%, #d9b86c 55%, #b8913f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .04em; }
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__text { color: #ffffff !important; letter-spacing: .14em !important; font-weight: 600 !important; }
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__button { color: #0c0c0c !important; background: #d4b26a !important; box-shadow: none !important; border-radius: 2px !important; letter-spacing: .14em !important; transition: background-color .2s !important; }
+  html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__button:hover { background: #e2c47f !important; filter: none !important; }
+  @media (max-width: 749px) {
+    html:is(html, #bfg) body .shopify-section:is(:has(+ .shopify-section #bft-{{ sid }}), :has(+ .shopify-section + .shopify-section #bft-{{ sid }})) .hero-slide__overlay { background: linear-gradient(180deg, rgba(8,8,8,0) 0%, rgba(8,8,8,.15) 32%, rgba(8,8,8,.68) 64%, rgba(8,8,8,.85) 100%) !important; }
+  }
+
+  html:is(html, #bfg) #bft-{{ sid }} .bft { background: #0c0c0c; color: #ffffff; border-top: 1px solid rgba(212,178,106,.35); border-bottom: 1px solid rgba(212,178,106,.35); }
+  html:is(html, #bfg) #bft-{{ sid }} .bft__eyebrow { color: #d4b26a; letter-spacing: .22em; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft__heading { color: #ffffff; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft__text { color: #cfc7b8; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft-cd__item { background: transparent; border: 1px solid rgba(212,178,106,.6); }
+  html:is(html, #bfg) #bft-{{ sid }} .bft-cd__num { color: #e2c47f; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft-cd__unit { color: #a9a092; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft__btn { color: #0c0c0c; background: #d4b26a; letter-spacing: .12em; transition: background-color .2s; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft__btn:hover { color: #0c0c0c; background: #e2c47f; filter: none; }
+  html:is(html, #bfg) #bft-{{ sid }} .bft__btn:focus-visible { outline-color: #d4b26a; }
+</style>
+{%- endif -%}
+<div id="bft-{{ sid }}" class="full-width" data-open="{{ open_iso | escape }}">
+  <div class="bft">
+    <div class="bft__inner">
+      <div class="bft__copy">
+        {%- if section.settings.eyebrow != blank -%}<p class="bft__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="bft__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="bft__text">{{ section.settings.text }}</div>{%- endif -%}
+      </div>
+      <div class="bft__side">
+        {%- if open_iso != blank -%}
+          <div class="bft-cd" role="timer" aria-label="{{ section.settings.timer_label | escape }}">
+            <div class="bft-cd__item"><span class="bft-cd__num" data-bft-d>0</span><span class="bft-cd__unit">Days</span></div>
+            <div class="bft-cd__item"><span class="bft-cd__num" data-bft-h>00</span><span class="bft-cd__unit">Hours</span></div>
+            <div class="bft-cd__item"><span class="bft-cd__num" data-bft-m>00</span><span class="bft-cd__unit">Mins</span></div>
+            <div class="bft-cd__item"><span class="bft-cd__num" data-bft-s>00</span><span class="bft-cd__unit">Secs</span></div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}<a class="bft__btn" href="{{ section.settings.button_link | default: '/pages/early-access' }}">{{ section.settings.button_label }}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var root = document.getElementById('bft-{{ sid }}');
+    if (!root) return;
+    var ts = Date.parse(root.getAttribute('data-open') || '');
+    if (isNaN(ts)) return;
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function set(k, v) { var n = root.querySelector('[data-bft-' + k + ']'); if (n && n.textContent !== String(v)) n.textContent = v; }
+    function tick() {
+      var ms = ts - Date.now(); if (ms < 0) ms = 0;
+      var s = Math.floor(ms / 1000);
+      set('d', Math.floor(s / 86400)); set('h', pad(Math.floor((s % 86400) / 3600))); set('m', pad(Math.floor((s % 3600) / 60))); set('s', pad(s % 60));
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Black Friday teaser",
+  "tag": "section",
+  "class": "section-sterling-bf-teaser",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Black Friday Early Access" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Black Friday, a week before everyone else." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>VIP access opens Monday 16 November, 7pm AEDT. The list closes Sunday 15 November.</p>" },
+    { "type": "text", "id": "open_datetime", "label": "Countdown to (ISO date-time)", "default": "2026-11-16T19:00:00+11:00", "info": "Keep this the same as on the Early Access page." },
+    { "type": "text", "id": "timer_label", "label": "Countdown label (screen readers)", "default": "VIP access opens in" },
+    { "type": "text", "id": "button_label", "label": "Button", "default": "Join the VIP list" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "select", "id": "style", "label": "Style", "options": [{ "value": "beige", "label": "Beige & green" }, { "value": "black_gold", "label": "Black & gold" }], "default": "beige" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#EDE3D9" },
+    { "type": "color", "id": "gold", "label": "Gold accent (not used)", "default": "#c9a24a" },
+    { "type": "color", "id": "button_color", "label": "Green (eyebrow, buttons)", "default": "#00B67A" },
+    { "type": "range", "id": "padding_top", "label": "Space above", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Space below", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "presets": [{ "name": "Black Friday teaser" }]
+}
+{% endschema %}

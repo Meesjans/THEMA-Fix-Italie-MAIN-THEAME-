@@ -1,0 +1,149 @@
+{
+  "type": "header",
+  "name": "t:general.header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "custom_css": [
+        ".visually-hidden {display: none;}",
+        ".header__drawer-list > li {border-bottom: 1px solid #ebebeb;}",
+        ".header__drawer-list > li:last-child {border-bottom: none;}",
+        ".header__drawer-list a,.header__drawer-toggle {padding-top: 16px; padding-bottom: 16px; font-weight: 400; letter-spacing: 0.05em; font-size: 14px;}",
+        ".header__drawer-toggle svg {width: 14px; height: 14px; opacity: 0.6;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "logo": "shopify://shop_images/Sterling_Co._Melbourne_-_Logo_1_1_287a5e94-29ed-4677-a571-3ffa4fd335f9.png",
+        "logo_width": 280,
+        "header_padding": 14,
+        "header_custom_sizes": false,
+        "header_height_desktop": 72,
+        "header_height_mobile": 56,
+        "header_padding_mobile": 8,
+        "logo_width_mobile": 140,
+        "menu": "main-menu",
+        "enable_dropdown_hover": true,
+        "header_layout": "logo-center-menu-below",
+        "header_style": "sticky",
+        "header_density": "normal",
+        "overlay_homepage": false,
+        "overlay_collection": false,
+        "show_language_selector": false,
+        "show_currency_selector": false,
+        "show_currency_flags": false,
+        "show_account_icon": false,
+        "show_search_icon": true,
+        "mobile_menu_title": "Menu",
+        "drawer_show_logo": true,
+        "drawer_logo_width": 190,
+        "customer_account_menu": "customer-account-main-menu"
+      }
+    },
+    "announcement_bar_FFKYK3": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_4Xj8xY": {
+          "type": "announcement",
+          "settings": {
+            "text": "EARLY BLACK FRIDAY SALE · UP TO 70% OFF",
+            "subtext": "",
+            "link": "",
+            "gold": true
+          }
+        },
+        "announcement_M3JhDL": {
+          "type": "announcement",
+          "settings": {
+            "text": "DISCOUNTED PRICES WHILE STOCK LASTS!",
+            "subtext": "",
+            "link": ""
+          }
+        },
+        "announcement_AWfgwV": {
+          "type": "announcement",
+          "settings": {
+            "text": "30 - DAY MONEY BACK GUARANTEE HASSLE-FREE RETURNS",
+            "subtext": "",
+            "link": ""
+          }
+        },
+        "announcement_bf": {
+          "type": "announcement",
+          "settings": {
+            "text": "<strong>BLACK FRIDAY EARLY ACCESS</strong> · JOIN THE LIST →",
+            "subtext": "",
+            "link": "shopify://pages/early-access"
+          }
+        },
+        "announcement_nCGpxU": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "SPEDIZIONE PREMIUM SEMPRE GRATUITA",
+            "subtext": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_4Xj8xY",
+        "announcement_M3JhDL",
+        "announcement_AWfgwV",
+        "announcement_bf",
+        "announcement_nCGpxU"
+      ],
+      "custom_css": [
+        "p.announcement-bar__text {font-weight: 700 !important;}",
+        ".announcement-bar__inner {padding-top: 11px !important; padding-bottom: 11px !important;}",
+        "@media screen and (max-width: 749px) {.announcement-bar__inner {padding-top: 9px !important; padding-bottom: 9px !important; }}"
+      ],
+      "settings": {
+        "display_mode": "slider",
+        "autoplay": true,
+        "compact": false,
+        "autoplay_interval": 5,
+        "scroll_speed": 25,
+        "color_scheme": "scheme-6136bbe5-cd3c-4b48-adb6-8d34ad8e03c8",
+        "font_preset": "heading",
+        "font_size_desktop": 18,
+        "font_size_mobile": 13,
+        "alignment": "center"
+      }
+    },
+    "copper_countdown": {
+      "type": "sterling-copper-countdown",
+      "settings": {
+        "end_at": "2026-11-26T23:59:00+11:00",
+        "show_on_product": true,
+        "eyebrow": "The Copper Edit · Sterling & Co.",
+        "title": "Early Black Friday Sale",
+        "ends_label": "Today's deal ends in:",
+        "bg_1": "#4a2c1c",
+        "bg_2": "#36200f",
+        "accent": "#d6955d",
+        "title_color": "#f6e3cc",
+        "daily": true,
+        "timezone": "Australia/Melbourne",
+        "box_bg": "#f6eee4",
+        "box_text": "#3a2216"
+      }
+    },
+    "copper_brown": {
+      "type": "sterling-copper-brown",
+      "settings": {
+        "brown": "#7a5434",
+        "brown_hover": "#66452a",
+        "text": "#ffffff",
+        "swap_logo": true
+      }
+    }
+  },
+  "order": [
+    "copper_countdown",
+    "header",
+    "announcement_bar_FFKYK3",
+    "copper_brown"
+  ]
+}
