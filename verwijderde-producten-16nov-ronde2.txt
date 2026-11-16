@@ -1,0 +1,298 @@
+gid://shopify/Product/11284820296023	2026-10-16	AMELIA | SUNLIT BLISS LAUNDRY BASKET
+gid://shopify/Product/11284820066647	2026-10-16	AURORA | VITAL BLOOM LAUNDRY BASKET
+gid://shopify/Product/11120324247895	2026-08-31	Addison | Long Blouse with V-Neck
+gid://shopify/Product/11246617887063	2026-10-05	Alessia | Platform Shoes
+gid://shopify/Product/11266735178071	2026-10-11	Alessia™ | Everyday Comfort Dress
+gid://shopify/Product/11246620442967	2026-10-05	Alisette | Elegant Loafers
+gid://shopify/Product/11284822982999	2026-10-16	Alruna™ | Exclusive Shoulder Bag
+gid://shopify/Product/11284821999959	2026-10-16	Alva™ | Practical Everyday Bag
+gid://shopify/Product/11284822720855	2026-10-16	Alvhild™ | Elegant Handbag
+gid://shopify/Product/11284821541207	2026-10-16	Alvhild™ | Versatile Tote Bag
+gid://shopify/Product/11284822557015	2026-10-16	Alvinda™ | Trendy Shoulder Bag
+gid://shopify/Product/11120324870487	2026-08-31	Amaia | Long Blouse with V-Neck
+gid://shopify/Product/11284822589783	2026-10-16	Amaya™ | Natural Handbag
+gid://shopify/Product/11120324641111	2026-08-31	Amoura | Long Blouse with V-Neck
+gid://shopify/Product/11120324444503	2026-08-31	Angel | Long Blouse with V-Neck
+gid://shopify/Product/11108577116503	2026-08-28	Anna | Asymmetrical Long Dress with V-Neck, Flared Puff Sleeves, and Floral Pattern
+gid://shopify/Product/11284845003095	2026-10-16	Antonia’s Travel Satchel | Crossbody Bag
+gid://shopify/Product/11284846084439	2026-10-16	Antonina’s Utility Style | Crossbody Bag
+gid://shopify/Product/11246618411351	2026-10-05	Arianna | Elegant Comfort Loafers
+gid://shopify/Product/11284845298007	2026-10-16	Arianna’s Everyday Carry | Shoulder Bag
+gid://shopify/Product/11284821442903	2026-10-16	Arnbjorg™ | Crossbody Bag with Modern Design
+gid://shopify/Product/11284821672279	2026-10-16	Astris™ | Functional Handbag
+gid://shopify/Product/11108577280343	2026-08-28	Aubrey | Flattering Tummy-Smoothing Midi Dress.
+gid://shopify/Product/11246617723223	2026-10-05	Aurelia | Vintage Comfort Sandals
+gid://shopify/Product/11284845691223	2026-10-16	Aurora’s Convertible Hobo | Shoulder Bag
+gid://shopify/Product/11266741240151	2026-10-11	Ayla™ | Vintage Striped Dress
+gid://shopify/Product/11284845527383	2026-10-16	Beatrice’s Structured Carry | Handbag
+gid://shopify/Product/11193153487191	2026-09-19	Beige Bohemian Lace Trim Ruched Midi Dress
+gid://shopify/Product/11246618542423	2026-10-05	Benedetta | Strap Mary Janes
+gid://shopify/Product/11108576788823	2026-08-28	Bianca | Elegant linen jumpsuit with crossover neckline
+gid://shopify/Product/11193153454423	2026-09-19	Black And Gray Two-tone Patchwork Draped Neckline Pleated Maxi Dress
+gid://shopify/Product/11193153356119	2026-09-19	Black Sleeveless Tank Top With Tulle Skirt Maxi Dress(without belt)
+gid://shopify/Product/11193153519959	2026-09-19	Blue Romantic Floral Midi Mermaid Dress with Lace Trim
+gid://shopify/Product/11193153585495	2026-09-19	Bohemian Green Printed Maxi Dress with Ruffled Sleeves
+gid://shopify/Product/11284845756759	2026-10-16	Breda’s Soft Carry | Shoulder Bag
+gid://shopify/Product/11108577018199	2026-08-28	CAMELLIA™ - ELEGANT SUMMER MAXI DRESS
+gid://shopify/Product/11284820492631	2026-10-16	CORAL | COASTAL HARMONY LAUNDRY BASKET
+gid://shopify/Product/11246117781847	2026-10-05	Calen Off Shoulder Flow Midi Dress
+gid://shopify/Product/11127041360215	2026-09-03	Camila | Elegant Asymmetric Dress
+gid://shopify/Product/11284845330775	2026-10-16	Camilla’s Structured Carry | Handbag
+gid://shopify/Product/11232834060631	2026-09-30	Carla™ - Floral Midi Dress with Puff Sleeves
+gid://shopify/Product/11246618313047	2026-10-05	Carlotta | Elegant Comfort Loafers
+gid://shopify/Product/11284846051671	2026-10-16	Carlotta’s Frame Elegance | Handbag
+gid://shopify/Product/11120324313431	2026-08-31	Cassidy | Long Blouse with V-Neck
+gid://shopify/Product/11232834584919	2026-09-30	Cayetana™ - Long Dress
+gid://shopify/Product/11120324575575	2026-08-31	Cecelia | Long Blouse with V-Neck
+gid://shopify/Product/11284844708183	2026-10-16	Chiara’s Modern Carry | Shoulder Bag
+gid://shopify/Product/11246617985367	2026-10-05	Clara | Orthopedic Fabric Sneakers
+gid://shopify/Product/11266735669591	2026-10-11	Corrie™ | Everyday Comfort Dress
+gid://shopify/Product/11246618181975	2026-10-05	Costanza | Comfort Suede Walking Shoes
+gid://shopify/Product/11284845658455	2026-10-16	Costanza’s Urban Charm | Crossbody Bag
+gid://shopify/Product/11284819837271	2026-10-16	DAISY | HUMMINGBIRD LACE LAUNDRY BASKET
+gid://shopify/Product/11284845134167	2026-10-16	Daniela’s Travel Carry | Duffle Bag
+gid://shopify/Product/11108577050967	2026-08-28	Danna | Soft Boho Two Piece Set
+gid://shopify/Product/11193153388887	2026-09-19	Dark Brown Lace-Paneled Chiffon Maxi Dress
+gid://shopify/Product/11284822065495	2026-10-16	Delyora™ | Elegant Phone Holder
+gid://shopify/Product/11246619623767	2026-10-05	Diana - Printed loafers with buckle detail
+gid://shopify/Product/11246618739031	2026-10-05	Diana | Handcrafted Orthopedic Loafers
+gid://shopify/Product/11266735440215	2026-10-11	Dilara™ | Everyday Comfort Dress
+gid://shopify/Product/11266735145303	2026-10-11	Diva™ | Everyday Comfort Dress
+gid://shopify/Product/11246618640727	2026-10-05	Donatella | Comfortable Elegant Loafers
+gid://shopify/Product/11284844872023	2026-10-16	Donatella’s Flap Carry | Crossbody Bag
+gid://shopify/Product/11266735276375	2026-10-11	Dora™ | Everyday Comfort Dress
+gid://shopify/Product/11108577444183	2026-08-28	ELARA | Fluid Palazzo Set for Elegant Comfort and Style
+gid://shopify/Product/11284820164951	2026-10-16	EVIE | FLUTTER AND BLOOM LAUNDRY BASKET
+gid://shopify/Product/11284819902807	2026-10-16	EVIE | HUMMINGBIRD IN BLOOM LAUNDRY BASKET
+gid://shopify/Product/11284819640663	2026-10-16	EVIE | WOODLAND PATCH LAUNDRY BASKET
+gid://shopify/Product/11284821213527	2026-10-16	Eirunn™ | Bohemian Shoulder Bag
+gid://shopify/Product/11284823048535	2026-10-16	Eirunn™ | Classic Handbag
+gid://shopify/Product/11284821377367	2026-10-16	Eirunn™ | Structured Handbag
+gid://shopify/Product/11108577575255	2026-08-28	Elara™ Pleated Floral Chiffon Jumpsuit
+gid://shopify/Product/11284845199703	2026-10-16	Elena’s Patterned Everyday | Shoulder Bag
+gid://shopify/Product/11284846412119	2026-10-16	Eleonora’s Everyday Carry | Tote Bag
+gid://shopify/Product/11246617395543	2026-10-05	Eliana | Gold-Tone Heels
+gid://shopify/Product/11284822917463	2026-10-16	Elida™ | Stylish Shoulder Bag
+gid://shopify/Product/11246617493847	2026-10-05	Elisa | Wide-Toe Block Heels
+gid://shopify/Product/11284845101399	2026-10-16	Elisa’s Slim Carry | Clutch
+gid://shopify/Product/11246620541271	2026-10-05	Eliza | Sandals with straps and tassels
+gid://shopify/Product/11246620213591	2026-10-05	Ellie - Flat Moccasins with Buckle
+gid://shopify/Product/11246618804567	2026-10-05	Elsa | Chunky Sole Loafers
+gid://shopify/Product/11284846248279	2026-10-16	Emanuela’s Multi-Pocket | Shoulder Bag
+gid://shopify/Product/11246620180823	2026-10-05	Emery - Mary Janes with Studs
+gid://shopify/Product/11232832291159	2026-09-30	Emma - Elegant Maxi Party Dress
+gid://shopify/Product/11246619459927	2026-10-05	Emmaleigh - Comfortable Loafers
+gid://shopify/Product/11266735833431	2026-10-11	Emma™ | Everyday Comfort Dress
+gid://shopify/Product/11246623064407	2026-10-05	Esra - Breathable Sandals
+gid://shopify/Product/11193153552727	2026-09-19	Ethnic-Style Printed One-Shoulder Maxi Dress with High Slit
+gid://shopify/Product/11266735210839	2026-10-11	Eva™ | Everyday Comfort Dress
+gid://shopify/Product/11120324903255	2026-08-31	Everlee | Long Blouse with V-Neck
+gid://shopify/Product/11120324051287	2026-08-31	Everly | Long Blouse with V-Neck
+gid://shopify/Product/11284822491479	2026-10-16	Eydora™ | Practical Shoulder Bag
+gid://shopify/Product/11284820394327	2026-10-16	FIONA | BLOOM HIGHLAND LAUNDRY BASKET
+gid://shopify/Product/11284819870039	2026-10-16	FREYA | GALAXY CAT LAUNDRY BASKET
+gid://shopify/Product/11284844249431	2026-10-16	Federica’s Multi Pocket | Shoulder Bag
+gid://shopify/Product/11246620737879	2026-10-05	Fern - Ballet Flats with Straps
+gid://shopify/Product/11246617690455	2026-10-05	Fern | Strappy Ballet Flats
+gid://shopify/Product/11246618771799	2026-10-05	Filippa | Elegant Heels
+gid://shopify/Product/11284845166935	2026-10-16	Filomena’s Embossed Charm | Crossbody Bag
+gid://shopify/Product/11284845625687	2026-10-16	Flavia’s Dual-Zip | Shoulder Bag
+gid://shopify/Product/11284845363543	2026-10-16	Francesca’s Sleek Essential | Tote Bag
+gid://shopify/Product/11246620410199	2026-10-05	Franki - Contrast Moccasins
+gid://shopify/Product/11246620279127	2026-10-05	Frendessa | Fringe Ballet Flats with Ankle Strap
+gid://shopify/Product/11284822393175	2026-10-16	Freydis™ | Handbag
+gid://shopify/Product/11284821279063	2026-10-16	Freydis™ | Shoulder Bag with Timeless Design
+gid://shopify/Product/11284821737815	2026-10-16	Freydis™ | Structured Handbag
+gid://shopify/Product/11284820033879	2026-10-16	GLORIA | MORNING GLORY LAUNDRY BASKET
+gid://shopify/Product/11246617526615	2026-10-05	Gemma | Casual Comfort Loafers
+gid://shopify/Product/11108577411415	2026-08-28	Gerika™ Elegant Jumpsuit
+gid://shopify/Product/11284844642647	2026-10-16	Ginevra’s Classic Tote | Shoulder Bag
+gid://shopify/Product/11284844839255	2026-10-16	Giorgia’s Fold Essential | Clutch
+gid://shopify/Product/11284845855063	2026-10-16	Giovanna’s Timeless Pack | Backpack
+gid://shopify/Product/11246617362775	2026-10-05	Giulia | Pointed Heels with Straps
+gid://shopify/Product/11284845461847	2026-10-16	Giulia’s Multi-Zip | Crossbody Bag
+gid://shopify/Product/11284823081303	2026-10-16	Giulia™ | Leather Shoulder Bag
+gid://shopify/Product/11271105085783	2026-10-12	Gladys™ Maxi Dress with pockets
+gid://shopify/Product/11246622900567	2026-10-05	Glyresan - Lightweight Orthopedic Sandals Beige
+gid://shopify/Product/11246622769495	2026-10-05	Glyresan - Lightweight Orthopedic Sandals Blue
+gid://shopify/Product/11246618050903	2026-10-05	Graziella | Elegant Comfort Loafers
+gid://shopify/Product/11284845396311	2026-10-16	Greta’s Braided Charm | Crossbody Bag
+gid://shopify/Product/11193153257815	2026-09-19	Grey Stretch Fabric And Chiffon Maxi Dress
+gid://shopify/Product/11284820361559	2026-10-16	HONEY | DAISY BEE LAUNDRY BASKET
+gid://shopify/Product/11284822098263	2026-10-16	Hedda™ | Shoulder Bag with Relaxed Elegance
+gid://shopify/Product/11246618870103	2026-10-05	Hyelianne - Comfortable Loafers
+gid://shopify/Product/11284820230487	2026-10-16	IRIS | DRAGONFLY GARDEN LAUNDRY BASKET
+gid://shopify/Product/11284821410135	2026-10-16	Idrine™ | Elegant Mini Handbag
+gid://shopify/Product/11284822851927	2026-10-16	Idunn™ | Shoulder Bag with Bohemian Touch
+gid://shopify/Product/11232834715991	2026-09-30	Ignacia™ - Long Pleated Floral Dress
+gid://shopify/Product/11246618116439	2026-10-05	Ilaria | Warm Orthopedic Slippers
+gid://shopify/Product/11284822524247	2026-10-16	Ingebjorg™ | Shoulder Bag with Unique Strap
+gid://shopify/Product/11284822262103	2026-10-16	Ingrida™ | Everyday Bag with Simple Elegance
+gid://shopify/Product/11284822163799	2026-10-16	Ingrida™ | Shoulder Bag with Elegant Shape
+gid://shopify/Product/11284844413271	2026-10-16	Irene’s Pattern Strap | Crossbody Bag
+gid://shopify/Product/11284845592919	2026-10-16	Isabella’s Classic Carry | Crossbody Bag
+gid://shopify/Product/11284821770583	2026-10-16	Isolde™ | Versatile Shoulder Bag
+gid://shopify/Product/11246619165015	2026-10-05	Iva - Elegant Shoes
+gid://shopify/Product/11120324837719	2026-08-31	Jacqueline | Long Blouse with V-Neck
+gid://shopify/Product/11246619033943	2026-10-05	Jalessa - Elegant Loafers
+gid://shopify/Product/11284821180759	2026-10-16	Janenovo Butterfly Handbag
+gid://shopify/Product/11120324378967	2026-08-31	Jayla | Long Blouse with V-Neck
+gid://shopify/Product/11284845494615	2026-10-16	Jessica’s Floral Elegance | Shoulder Bag
+gid://shopify/Product/11246620049751	2026-10-05	Jheanna - Classic and Comfortable Loafers
+gid://shopify/Product/11271105184087	2026-10-12	Jilliann™ Maxi Dress
+gid://shopify/Product/11120324215127	2026-08-31	Josie | Long Blouse with V-Neck
+gid://shopify/Product/11266735112535	2026-10-11	Karin™ | Everyday Comfort Dress
+gid://shopify/Product/11108576919895	2026-08-28	Keara™ Elegant Dress
+gid://shopify/Product/11266735341911	2026-10-11	Kelly™ | Everyday Comfort Dress
+gid://shopify/Product/11266735604055	2026-10-11	Kelly™ | Everyday Comfort Dress
+gid://shopify/Product/11246619853143	2026-10-05	Kyline - Elegant Loafers
+gid://shopify/Product/11246619427159	2026-10-05	LIVIA - Elegant and Comfortable Ballet Flats
+gid://shopify/Product/11266735702359	2026-10-11	Lara™ | Everyday Comfort Dress
+gid://shopify/Product/11120324346199	2026-08-31	Lenora | Long Blouse with V-Neck
+gid://shopify/Product/11246618083671	2026-10-05	Letizia | Square-Toe Vegan Leather Ballet Flats
+gid://shopify/Product/11266735735127	2026-10-11	Lies™ | Everyday Comfort Dress
+gid://shopify/Product/11120324280663	2026-08-31	Lilian | Long Blouse with V-Neck
+gid://shopify/Product/11284821901655	2026-10-16	Liorane™ | Luxurious Ribbed Handbag
+gid://shopify/Product/11108576952663	2026-08-28	Lisa Maxi Dress with Notched Collar and Long Sleeves for Women
+gid://shopify/Product/11246620574039	2026-10-05	Livia | Pointed Flats
+gid://shopify/Product/11284845986135	2026-10-16	Livia’s Minimal Carry | Tote Bag
+gid://shopify/Product/11284822786391	2026-10-16	Liv™ | Classic Shoulder Bag
+gid://shopify/Product/11284823015767	2026-10-16	Lora™ | Shoulder Bag with Classic Elegance
+gid://shopify/Product/11284844446039	2026-10-16	Lorenza’s Belt Carry | Crossbody Bag
+gid://shopify/Product/11120324706647	2026-08-31	Lottie | Long Blouse with V-Neck
+gid://shopify/Product/11271105020247	2026-10-12	Lucia | Lace Detail Midi Dress
+gid://shopify/Product/11120324936023	2026-08-31	Lucia | Long Blouse with V-Neck
+gid://shopify/Product/11284844544343	2026-10-16	Luciana’s Carved Detail | Handbag
+gid://shopify/Product/11284844118359	2026-10-16	Lucia’s Strap Essential | Crossbody Bag
+gid://shopify/Product/11246617919831	2026-10-05	Ludovica | Comfort Trainers with Stable Sole
+gid://shopify/Product/11284844380503	2026-10-16	Ludovica’s Strap Carry | Shoulder Bag
+gid://shopify/Product/11120324772183	2026-08-31	Lyla | Long Blouse with V-Neck
+gid://shopify/Product/11284819706199	2026-10-16	MATILDA | SERENE FLUTTER LAUNDRY BASKET
+gid://shopify/Product/11284819968343	2026-10-16	MEADOW | WILDFLOWER STATE MAGIC LAUNDRY BASKET
+gid://shopify/Product/11284820263255	2026-10-16	MILO | BARKSIDE MAGIC LAUNDRY BASKET
+gid://shopify/Product/11284845560151	2026-10-16	Marcella’s Utility Carry | Backpack
+gid://shopify/Product/11284844216663	2026-10-16	Margherita’s Studded Buckle | Clutch
+gid://shopify/Product/11120324542807	2026-08-31	Margo | Long Blouse with V-Neck
+gid://shopify/Product/11108576887127	2026-08-28	Maria | Comfortable and elegant jumpsuit
+gid://shopify/Product/11120323952983	2026-08-31	Maria | Long Blouse with V-Neck
+gid://shopify/Product/11246618509655	2026-10-05	Maricela | Orthopedic Loafers
+gid://shopify/Product/11120324477271	2026-08-31	Marlee | Long Blouse with V-Neck
+gid://shopify/Product/11246618018135	2026-10-05	Martina | Comfort Loafers with Flexible Sole
+gid://shopify/Product/11284846018903	2026-10-16	Martina’s Vintage Frame | Handbag
+gid://shopify/Product/11246619722071	2026-10-05	Mary Janes - Classic Mary Janes
+gid://shopify/Product/11284844904791	2026-10-16	Matilde’s Braided Carry | Crossbody Bag
+gid://shopify/Product/11246619525463	2026-10-05	Maylora - Comfortable Loafers
+gid://shopify/Product/11246619328855	2026-10-05	Melissa - Elegant and Comfortable Loafers
+gid://shopify/Product/11120324182359	2026-08-31	Melody | Long Blouse with V-Neck
+gid://shopify/Product/11284844511575	2026-10-16	Michela’s Floral Elegance | Handbag
+gid://shopify/Product/11120324608343	2026-08-31	Millie | Long Blouse with V-Neck
+gid://shopify/Product/11246617952599	2026-10-05	Miranda | Leather Ankle Boots with Graphic Print
+gid://shopify/Product/11284844151127	2026-10-16	Monica Braided Multi-Zip | Crossbody Bag
+gid://shopify/Product/11246617657687	2026-10-05	Monica | Comfort Slip-On Shoes
+gid://shopify/Product/11232833372503	2026-09-30	Monique | V-Neck Dress
+gid://shopify/Product/11284821639511	2026-10-16	Mykahlynn™ | Elegant Bag
+gid://shopify/Product/11284819542359	2026-10-16	NAOMI | CLUCK COUTURE LAUNDRY BASKET
+gid://shopify/Product/11284819738967	2026-10-16	NAOMI | FOREST LAUNDRY BASKET
+gid://shopify/Product/11120324411735	2026-08-31	Natalie | Long Blouse with V-Neck
+gid://shopify/Product/11120324510039	2026-08-31	Nellie | Long Blouse with V-Neck
+gid://shopify/Product/11246618837335	2026-10-05	Neroa | Elegant Heels
+gid://shopify/Product/11284844282199	2026-10-16	Noemi’s Utility Carry | Sling Bag
+gid://shopify/Product/11108577313111	2026-08-28	Olivia | V-Neck Wide-Leg Two-Piece Set
+gid://shopify/Product/11284821868887	2026-10-16	Olivia™ | 4-Piece Vintage Bag Set
+gid://shopify/Product/11284822458711	2026-10-16	Olivia™ | Shoulder Bag with Practical Elegance
+gid://shopify/Product/11284822360407	2026-10-16	Olivia™ | Shoulder Bag with Relaxed Elegance
+gid://shopify/Product/11284822327639	2026-10-16	Olivia™ | Shoulder Bag with Sleek Design
+gid://shopify/Product/11246622802263	2026-10-05	Orivelle – Lightweight Walking Sandals
+gid://shopify/Product/11284820525399	2026-10-16	PEARL | SHELL SHINE LAUNDRY BASKET
+gid://shopify/Product/11284820427095	2026-10-16	POPPY | CAT PARADE LAUNDRY BASKET
+gid://shopify/Product/11284820197719	2026-10-16	POPPY | FLUFF PARADE LAUNDRY BASKET
+gid://shopify/Product/11284846182743	2026-10-16	Paola’s Fold Carry | Clutch
+gid://shopify/Product/11271104659799	2026-10-12	Penelope | One-Shoulder Floral Maxi
+gid://shopify/Product/11246620770647	2026-10-05	Phaedra - Comfortable slip-ons with a soft sole
+gid://shopify/Product/11120324739415	2026-08-31	Priscilla | Long Blouse with V-Neck
+gid://shopify/Product/11284820132183	2026-10-16	ROWAN | ETERNAL ROOTS LAUNDRY BASKET
+gid://shopify/Product/11284845232471	2026-10-16	Rachele’s Multi-Zip | Shoulder Bag
+gid://shopify/Product/11284821344599	2026-10-16	Ragnelle™ | Shoulder Bag with Unique Character
+gid://shopify/Product/11246617592151	2026-10-05	Rebecca | Elegant Loafers
+gid://shopify/Product/11266735636823	2026-10-11	Reda™ | Everyday Comfort Dress
+gid://shopify/Product/11284844806487	2026-10-16	Renata’s Soft Carry | Shoulder Bag
+gid://shopify/Product/11246619951447	2026-10-05	Reniah - Comfortable Moccasins
+gid://shopify/Product/11193153323351	2026-09-19	Retro Black cami and brown printed mesh skirt set
+gid://shopify/Product/11266735866199	2026-10-11	Reven™ | Everyday Comfort Dress
+gid://shopify/Product/11284845068631	2026-10-16	Rosalia’s Multi-Zip Carry | Shoulder Bag
+gid://shopify/Product/11284846149975	2026-10-16	Rosaria’s Minimal Carry | Tote Bag
+gid://shopify/Product/11284821705047	2026-10-16	Rovena™ | Minimalist Shoulder Bag
+gid://shopify/Product/11284819673431	2026-10-16	SKYE | PURE DRAGONFLY LAUNDRY BASKET
+gid://shopify/Product/11246619099479	2026-10-05	SOLD OUT!
+gid://shopify/Product/11246619820375	2026-10-05	SOLD OUT!
+gid://shopify/Product/11246620377431	2026-10-05	SOLD OUT!
+gid://shopify/Product/11246620148055	2026-10-05	STELLE - Animal Print Loafers
+gid://shopify/Product/11284819771735	2026-10-16	SUNNY | HAPPY GOLDEN RETRIEVER LAUNDRY BASKET
+gid://shopify/Product/11284819575127	2026-10-16	SUNNY | SUNSHINE FLORAL LAUNDRY BASKET
+gid://shopify/Product/11108577476951	2026-08-28	Sage Blossom Grace Pocket Midi Dress
+gid://shopify/Product/11246623261015	2026-10-05	Salorita - Lightweight Orthopedic Sandals Apricot
+gid://shopify/Product/11246623293783	2026-10-05	Salorita - Lightweight Orthopedic Sandals Black
+gid://shopify/Product/11246622671191	2026-10-05	Salorita - Lightweight Orthopedic Sandals Gray
+gid://shopify/Product/11246623326551	2026-10-05	Sanarita - Lightweight Orthopedic Sandals Beige
+gid://shopify/Product/11246622933335	2026-10-05	Sanarita - Lightweight Orthopedic Sandals Black
+gid://shopify/Product/11246622638423	2026-10-05	Sanarita - Lightweight Orthopedic Sandals Blue
+gid://shopify/Product/11246619263319	2026-10-05	Sara - Classic Mary Jane shoes with adjustable buckle
+gid://shopify/Product/11246618476887	2026-10-05	Sarah | Elegant T-Strap Mary Janes
+gid://shopify/Product/11266735571287	2026-10-11	Sara™ | Everyday Comfort Dress
+gid://shopify/Product/11284822950231	2026-10-16	Selinda™ | Elegant Shoulder Bag
+gid://shopify/Product/11284821836119	2026-10-16	Selinde™ | Elegant Shoulder Bag
+gid://shopify/Product/11246622966103	2026-10-05	Selyndra - Lightweight Orthopedic Sandals Beige
+gid://shopify/Product/11246623359319	2026-10-05	Selyndra - Lightweight Orthopedic Sandals Black
+gid://shopify/Product/11246622835031	2026-10-05	Selyndra - Lightweight Orthopedic Sandals Blue
+gid://shopify/Product/11246622605655	2026-10-05	Selyndra - Lightweight Orthopedic Sandals Pink
+gid://shopify/Product/11246622998871	2026-10-05	Selyndra - Lightweight Orthopedic Sandals White
+gid://shopify/Product/11284844937559	2026-10-16	Serafina’s Utility Charm | Crossbody Bag
+gid://shopify/Product/11284846215511	2026-10-16	Serena’s Zip Carry | Shoulder Bag
+gid://shopify/Product/11284822688087	2026-10-16	Sigrane™ | Professional Handbag
+gid://shopify/Product/11284822131031	2026-10-16	Sigrid™ | Spacious Everyday Bag
+gid://shopify/Product/11284844773719	2026-10-16	Silvia’s Minimal Carry | Tote Bag
+gid://shopify/Product/11246617788759	2026-10-05	Simonetta | Classic Vintage Loafers
+gid://shopify/Product/11246618280279	2026-10-05	Sofia | Elegant Leopard-Print Loafers
+gid://shopify/Product/11284845429079	2026-10-16	Sofia’s Casual Carry | Shoulder Bag
+gid://shopify/Product/11246618444119	2026-10-05	Solene | Orthopedic Leather Ballet Flats
+gid://shopify/Product/11284821082455	2026-10-16	Solveig™ | Classic Handbag
+gid://shopify/Product/11284822229335	2026-10-16	Solveig™ | Exclusive Handbag
+gid://shopify/Product/11284823146839	2026-10-16	Solveig™ | Robust Tote Bag
+gid://shopify/Product/11284821606743	2026-10-16	Solvi™ | Trendy Shoulder Bag
+gid://shopify/Product/11284844577111	2026-10-16	Stella’s Structured Tote | Shoulder Bag
+gid://shopify/Product/11120324673879	2026-08-31	Stephanie | Long Blouse with V-Neck
+gid://shopify/Product/11246619492695	2026-10-05	Susie - Loafers
+gid://shopify/Product/11284821934423	2026-10-16	Svanhild™ | Natural Shoulder Bag
+gid://shopify/Product/11284822819159	2026-10-16	Svanhild™ | Shoulder Bag with Modern Elegance
+gid://shopify/Product/11284821508439	2026-10-16	Sylindra™ | Modern Shoulder Bag
+gid://shopify/Product/11284844183895	2026-10-16	Teresa’s Pocket Carry | Crossbody Bag
+gid://shopify/Product/11284821115223	2026-10-16	Thora™ | Minimalist Shoulder Bag
+gid://shopify/Product/11284822655319	2026-10-16	Thyra™ | Exclusive Handbag
+gid://shopify/Product/11284845723991	2026-10-16	Tiziana’s Utility Carry | Tote Bag
+gid://shopify/Product/11271104725335	2026-10-12	Tracey™ Maxi Dress
+gid://shopify/Product/11246619132247	2026-10-05	Trixie - Elegant Loafers
+gid://shopify/Product/11246622572887	2026-10-05	Tyressa - Lightweight Orthopedic Sandals Apricot
+gid://shopify/Product/11246623097175	2026-10-05	Tyressa - Lightweight Orthopedic Sandals Blue
+gid://shopify/Product/11246622540119	2026-10-05	Tyressa - Lightweight Orthopedic Sandals Green
+gid://shopify/Product/11284844347735	2026-10-16	Valentina’s Zip Carry | Belt Bag
+gid://shopify/Product/11284844609879	2026-10-16	Valeria Top-Zip Satchel | Shoulder Bag
+gid://shopify/Product/11120324804951	2026-08-31	Valerie | Long Blouse with V-Neck
+gid://shopify/Product/11246623031639	2026-10-05	Velara – Orthopedic Support Sandals
+gid://shopify/Product/11246622867799	2026-10-05	Velienne – Lightweight Comfort Sandals
+gid://shopify/Product/11246618378583	2026-10-05	Veronica | Elegant Leather Shoes
+gid://shopify/Product/11284844675415	2026-10-16	Veronica’s Floral Accent | Handbag
+gid://shopify/Product/11284846444887	2026-10-16	Vittoria’s Utility Carry | Crossbody Bag
+gid://shopify/Product/11284819935575	2026-10-16	WHISKERS | PURRFECT POSSE LAUNDRY BASKET
+gid://shopify/Product/11108576985431	2026-08-28	Wanda · Complete with gray lace bandeau and pleated harem pants
+gid://shopify/Product/11246619885911	2026-10-05	Wynn - Wide Toe Heeled Shoes
+gid://shopify/Product/11246620016983	2026-10-05	Xhyrene - Elegant loafers with support
+gid://shopify/Product/11266735046999	2026-10-11	Yana™ | Everyday Comfort Dress
+gid://shopify/Product/11284821967191	2026-10-16	Yrla™ | Classic Shoulder Bag
+gid://shopify/Product/11284822294871	2026-10-16	Yrla™ | Trendy Shoulder Bag
+gid://shopify/Product/11246620311895	2026-10-05	Ysavriann - Elegant Loafers
+gid://shopify/Product/11246619984215	2026-10-05	Yzabella - Comfortable and Refined Loafers
+gid://shopify/Product/11246623228247	2026-10-05	Zenvia – Comfort Walking Sandals
+gid://shopify/Product/11246620803415	2026-10-05	Zina | Women's breathable knit platform sandals
+gid://shopify/Product/11108577542487	2026-08-28	Zoltán | Elegant white woven sleeveless halter-neck jumpsuit
+gid://shopify/Product/11108577214807	2026-08-28	Zsófia Jumpsuit – White Pleated Chiffon
+gid://shopify/Product/11284821246295	2026-10-16	Åshild™ | Spacious Beach Bag
