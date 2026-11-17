@@ -8,10 +8,10 @@
 <div class="bdeal" id="bdeal-{{ product.id }}">
   <div class="bdeal__head"><span class="bdeal__tag">BAG DEAL</span><span class="bdeal__title">The more bags, the more you save</span></div>
   <div class="bdeal__tiers" role="radiogroup" aria-label="Number of bags">
-    <button type="button" class="bdeal__tier" data-n="1" data-total="$59.95"><span class="bdeal__n">1 bag</span><span class="bdeal__each">50% off</span><strong>$59.95</strong></button>
-    <button type="button" class="bdeal__tier is-active" data-n="2" data-total="$99.90"><span class="bdeal__n">2 bags</span><span class="bdeal__each">$49.95 each</span><strong>$99.90</strong></button>
-    <button type="button" class="bdeal__tier" data-n="3" data-total="$140.85"><span class="bdeal__n">3 bags</span><span class="bdeal__each">$46.95 each</span><strong>$140.85</strong></button>
-    <button type="button" class="bdeal__tier" data-n="4" data-total="$179.80"><i>BEST VALUE</i><span class="bdeal__n">4 bags</span><span class="bdeal__each">$44.95 each</span><strong>$179.80</strong></button>
+    <button type="button" class="bdeal__tier" data-n="1" data-total="$69.95"><span class="bdeal__n">1 bag</span><span class="bdeal__each">50% off</span><strong>$69.95</strong></button>
+    <button type="button" class="bdeal__tier is-active" data-n="2" data-total="$119.90"><span class="bdeal__n">2 bags</span><span class="bdeal__each">$59.95 each</span><strong>$119.90</strong></button>
+    <button type="button" class="bdeal__tier" data-n="3" data-total="$170.85"><span class="bdeal__n">3 bags</span><span class="bdeal__each">$56.95 each</span><strong>$170.85</strong></button>
+    <button type="button" class="bdeal__tier" data-n="4" data-total="$211.80"><i>BEST VALUE</i><span class="bdeal__n">4 bags</span><span class="bdeal__each">$52.95 each</span><strong>$211.80</strong></button>
   </div>
   <div class="bdeal__rows">
     {%- for i in (2..4) -%}
@@ -21,7 +21,7 @@
       </div>
     {%- endfor -%}
   </div>
-  <button type="button" class="bdeal__btn">Add 2 bags · $99.90</button>
+  <button type="button" class="bdeal__btn">Add 2 bags · $119.90</button>
   <p class="bdeal__note">Bag 1 is the colour you have selected above. Your bag discount is applied automatically in the cart.</p>
 </div>
 <style>
@@ -49,10 +49,10 @@
 (function(){
   var box=document.getElementById('bdeal-{{ product.id }}'); if(!box) return;
   var btn=box.querySelector('.bdeal__btn'), tiers=box.querySelectorAll('.bdeal__tier'), picks=box.querySelectorAll('.bdeal__pick');
-  var n=2, total='$99.90';
+  var n=2, total='$119.90';
   var sels=box.querySelectorAll('.bdeal__pick select');
   sels.forEach(function(s,i){ if(s.options.length>i+1) s.selectedIndex=i+1; });
-  function label(){ btn.textContent = n===1 ? 'Add 1 bag · $59.95' : 'Add '+n+' bags · '+total; }
+  function label(){ btn.textContent = n===1 ? 'Add 1 bag · $69.95' : 'Add '+n+' bags · '+total; }
   tiers.forEach(function(t){ t.addEventListener('click',function(){
     tiers.forEach(function(x){x.classList.remove('is-active');}); t.classList.add('is-active');
     n=+t.dataset.n; total=t.dataset.total;
