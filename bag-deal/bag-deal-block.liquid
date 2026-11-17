@@ -6,7 +6,7 @@
   {%- endif -%}{%- endfor -%}{%- endfor -%}
 {%- endcapture -%}
 <div class="bdeal" id="bdeal-{{ product.id }}">
-  <div class="bdeal__cs">Clearance Sale <span>· while stocks last</span></div><p class="bdeal__sub">The more bags, the more you save</p>
+  <div class="bdeal__cs"><span class="bdeal__cs-on" data-cs-on>Last day of our clearance sale</span><span data-cs-off hidden>Clearance Sale <span>· while stocks last</span></span></div><p class="bdeal__sub">The more bags, the more you save</p>
   <div class="bdeal__tiers" role="radiogroup" aria-label="Number of bags">
     <button type="button" class="bdeal__tier" data-n="1" data-total="$69.95"><span class="bdeal__n">1 bag</span><span class="bdeal__each">50% off</span><strong>$69.95</strong></button>
     <button type="button" class="bdeal__tier is-active" data-n="2" data-total="$119.90"><span class="bdeal__n">2 bags</span><span class="bdeal__each">$59.95 each</span><strong>$119.90</strong></button>
@@ -24,7 +24,7 @@
   <button type="button" class="bdeal__btn">Add 2 bags · $119.90</button>
   <p class="bdeal__note">Bag 1 is the colour you have selected above. Your bag discount is applied automatically in the cart.</p>
 </div>
-<style>.bdeal__cs{margin:-16px -14px 12px;padding:11px 12px;background:#1b1b1b;color:#fff;border-radius:8px 8px 0 0;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.bdeal__cs span{color:#d4b06a;font-weight:600}.bdeal__sub{margin:0 0 12px;text-align:center;font-size:15px;font-weight:600;color:#1b1b1b}
+<style>.bdeal__cs{margin:-16px -14px 12px;padding:11px 12px;background:#1b1b1b;color:#fff;border-radius:8px 8px 0 0;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.bdeal__cs span{color:#d4b06a;font-weight:600}.bdeal__cs [hidden]{display:none}.bdeal__cs .bdeal__cs-on{color:#fff}.bdeal__sub{margin:0 0 12px;text-align:center;font-size:15px;font-weight:600;color:#1b1b1b}
 .bdeal{box-sizing:border-box;width:100%;margin:6px 0 4px;padding:16px 14px 14px;border:1.5px solid #b08d4a;border-radius:10px;background:#fbf8f2;color:#1b1b1b}
 .bdeal__head{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
 .bdeal__tag{background:#1b1b1b;color:#d4b06a;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 8px;border-radius:4px}
@@ -74,3 +74,4 @@
   });
 })();
 </script>
+<script>(function(){var end=new Date('2026-11-18T23:59:00+11:00').getTime();function u(){var on=Date.now()<end;document.querySelectorAll('[data-cs-on]').forEach(function(e){e.hidden=!on;});document.querySelectorAll('[data-cs-off]').forEach(function(e){e.hidden=on;});}u();setInterval(u,60000);})();</script>
