@@ -1,0 +1,58 @@
+{%- assign deal_coll = collections['signature-shoulder-bags'] -%}
+<div class="bdeal" id="bdeal-{{ product.id }}">
+  <div class="bdeal__head">
+    <span class="bdeal__tag">BAG DEAL</span>
+    <span class="bdeal__title">2 bags for $99.90</span>
+  </div>
+  <div class="bdeal__rows">
+    <div class="bdeal__row"><span>1 bag</span><strong>$59.95</strong></div>
+    <div class="bdeal__row bdeal__row--best"><span>2 bags <em>$49.95 each</em></span><strong>$99.90</strong><i>BEST VALUE</i></div>
+  </div>
+  <label class="bdeal__label" for="bdeal-sel-{{ product.id }}">Choose your 2nd bag</label>
+  <select class="bdeal__select" id="bdeal-sel-{{ product.id }}">
+    {%- for p in deal_coll.products -%}
+      {%- for v in p.variants -%}
+        {%- if v.available -%}
+          <option value="{{ v.id }}"{% if p.id == product.id and forloop.first %} selected{% endif %}>{{ p.title | split: '|' | first | strip }}{% if p.variants.size > 1 %} · {{ v.title }}{% endif %}{% assign c = p.title | split: '|' | last | strip %}{% if p.variants.size == 1 and c != p.title %} · {{ c | remove: ' Crescent Shoulder Bag' | remove: ' Bag' }}{% endif %}</option>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </select>
+  <button type="button" class="bdeal__btn">Add both bags · $99.90</button>
+  <p class="bdeal__note">The $20 bag discount is applied automatically in your cart.</p>
+</div>
+<style>
+.bdeal{box-sizing:border-box;width:100%;margin:6px 0 4px;padding:16px 16px 14px;border:1.5px solid #b08d4a;border-radius:10px;background:#fbf8f2;color:#1b1b1b;font-family:inherit}
+.bdeal__head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.bdeal__tag{background:#1b1b1b;color:#d4b06a;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 8px;border-radius:4px}
+.bdeal__title{font-size:17px;font-weight:700;letter-spacing:.01em}
+.bdeal__rows{display:grid;gap:8px;margin-bottom:12px}
+.bdeal__row{position:relative;display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border:1px solid #e6dccb;border-radius:8px;background:#fff;font-size:15px}
+.bdeal__row em{font-style:normal;color:#7a6a55;font-size:13px;margin-left:6px}
+.bdeal__row--best{border-color:#b08d4a;background:#fff}
+.bdeal__row--best i{position:absolute;top:-9px;right:10px;background:#b08d4a;color:#fff;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 7px;border-radius:3px}
+.bdeal__label{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+.bdeal__select{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid #cfc4b0;border-radius:8px;background:#fff;font-size:15px;margin-bottom:10px;color:#1b1b1b}
+.bdeal__btn{width:100%;padding:15px 12px;border:0;border-radius:8px;background:#1b1b1b;color:#fff;font-size:15px;font-weight:700;letter-spacing:.04em;cursor:pointer}
+.bdeal__btn[disabled]{opacity:.6}
+.bdeal__note{margin:8px 0 0;font-size:12.5px;color:#6b6257;text-align:center}
+</style>
+<script>
+(function(){
+  var box=document.getElementById('bdeal-{{ product.id }}'); if(!box) return;
+  var btn=box.querySelector('.bdeal__btn'), sel=box.querySelector('select');
+  btn.addEventListener('click',function(){
+    var f=document.querySelector('form[action*="/cart/add"] [name="id"]');
+    var first=(f&&f.value)||'{{ product.selected_or_first_available_variant.id }}';
+    var items=[{id:+first,quantity:1},{id:+sel.value,quantity:1}];
+    if(items[0].id===items[1].id){items=[{id:items[0].id,quantity:2}];}
+    btn.disabled=true; var t=btn.textContent; btn.textContent='Adding…';
+    fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({items:items})})
+      .then(function(r){if(!r.ok) throw r; return r.json();})
+      .then(function(){btn.textContent=t;btn.disabled=false;
+        if(window.jdCart&&window.jdCart.open){document.dispatchEvent(new CustomEvent('jd-cart:refresh'));window.jdCart.open();}
+        else{location.href='/cart';}})
+      .catch(function(){btn.textContent='Sorry, that bag is unavailable';setTimeout(function(){btn.textContent=t;btn.disabled=false;},2500);});
+  });
+})();
+</script>
