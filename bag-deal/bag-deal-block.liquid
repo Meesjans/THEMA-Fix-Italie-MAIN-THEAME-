@@ -6,7 +6,7 @@
   {%- endif -%}{%- endfor -%}{%- endfor -%}
 {%- endcapture -%}
 <div class="bdeal" id="bdeal-{{ product.id }}">
-  <div class="bdeal__head"><span class="bdeal__tag">BAG DEAL</span><span class="bdeal__title">The more bags, the more you save</span></div>
+  <div class="bdeal__cs"><b>CLEARANCE SALE</b><span> · WHILE STOCKS LAST</span></div><div class="bdeal__head"><span class="bdeal__tag">BAG DEAL</span><span class="bdeal__title">The more bags, the more you save</span></div>
   <div class="bdeal__tiers" role="radiogroup" aria-label="Number of bags">
     <button type="button" class="bdeal__tier" data-n="1" data-total="$69.95"><span class="bdeal__n">1 bag</span><span class="bdeal__each">50% off</span><strong>$69.95</strong></button>
     <button type="button" class="bdeal__tier is-active" data-n="2" data-total="$119.90"><span class="bdeal__n">2 bags</span><span class="bdeal__each">$59.95 each</span><strong>$119.90</strong></button>
@@ -24,7 +24,7 @@
   <button type="button" class="bdeal__btn">Add 2 bags · $119.90</button>
   <p class="bdeal__note">Bag 1 is the colour you have selected above. Your bag discount is applied automatically in the cart.</p>
 </div>
-<style>
+<style>.bdeal__cs{margin:-16px -14px 14px;padding:10px 12px;background:#1b1b1b;color:#d4b06a;border-radius:8px 8px 0 0;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.1em}.bdeal__cs b{color:#fff}.bdeal__cs [hidden]{display:none}
 .bdeal{box-sizing:border-box;width:100%;margin:6px 0 4px;padding:16px 14px 14px;border:1.5px solid #b08d4a;border-radius:10px;background:#fbf8f2;color:#1b1b1b}
 .bdeal__head{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
 .bdeal__tag{background:#1b1b1b;color:#d4b06a;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 8px;border-radius:4px}
