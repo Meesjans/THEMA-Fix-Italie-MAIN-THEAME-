@@ -87,7 +87,7 @@
           endif
         -%}
         <div class="cx-card" data-cx-card data-tags=" {{ tagstr }} "{% if forloop.index > s.initial_count %} hidden{% endif %}>
-          <a class="cx-card__media" href="{{ p.url }}">
+          <a class="cx-card__media" href="{{ p.url }}" data-cx-qv="{{ p.handle }}">
             {%- if p.featured_image -%}
               {%- if forloop.index <= 4 -%}
                 {{ p.featured_image | image_url: width: 600 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '300, 450, 600', sizes: '(max-width: 749px) 47vw, (max-width: 1199px) 31vw, 300px', alt: p.title, class: 'cx-card__img' }}
@@ -98,7 +98,7 @@
             {%- if is_best -%}<span class="cx-card__best{% if s.gold_product != blank and s.gold_product.id == p.id %} cx-card__best--gold{% endif %}">{{ s.badge_text }}</span>{%- endif -%}
             {%- if save > 0 -%}<span class="cx-card__save">Save {{ save }}%</span>{%- endif -%}
           </a>
-          <a class="cx-card__title" href="{{ p.url }}">{{ p.title }}</a>
+          <a class="cx-card__title" href="{{ p.url }}" data-cx-qv="{{ p.handle }}">{{ p.title }}</a>
           <p class="cx-card__price">{%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money_with_currency }}</s>{%- endif -%}<span>{{ v.price | money_with_currency }}</span></p>
           {%- if p.available == false -%}
             <button type="button" class="cx-card__btn" disabled>Sold out</button>
@@ -138,12 +138,32 @@
         </div>
         <ul class="cx-dr__items" data-cx-items></ul>
         <p class="cx-dr__other" data-cx-other hidden></p>
+        <div class="cx-vch" data-cx-vch></div>
       </div>
       <div class="cx-dr__foot">
         <p class="cx-dr__save" data-cx-dr-save></p>
         <a class="cx-dr__go" href="/checkout" data-cx-dr-go>{{ s.checkout_label }}</a>
         <button type="button" class="cx-dr__keep" data-cx-close>{{ s.keep_label }}</button>
       </div>
+    </div>
+  </div>
+
+  <div class="cx-qv" data-cx-qvm hidden>
+    <div class="cx-qv__bg" data-cx-qv-close></div>
+    <div class="cx-qv__box" role="dialog" aria-modal="true" aria-label="Product preview">
+      <button type="button" class="cx-qv__x" data-cx-qv-close aria-label="Close">&times;</button>
+      <div class="cx-qv__stage">
+        <img class="cx-qv__img" data-cx-qv-img alt="">
+        <button type="button" class="cx-qv__nav cx-qv__nav--p" data-cx-qv-step="-1" aria-label="Previous image">&#8249;</button>
+        <button type="button" class="cx-qv__nav cx-qv__nav--n" data-cx-qv-step="1" aria-label="Next image">&#8250;</button>
+        <span class="cx-qv__count" data-cx-qv-count></span>
+      </div>
+      <div class="cx-qv__thumbs" data-cx-qv-thumbs></div>
+      <p class="cx-qv__title" data-cx-qv-title></p>
+      <p class="cx-qv__price" data-cx-qv-price></p>
+      <select class="cx-qv__sel" data-cx-qv-sel hidden aria-label="Choose option"></select>
+      <button type="button" class="cx-qv__add" data-cx-qv-add>{{ s.add_label }}</button>
+      <a class="cx-qv__link" data-cx-qv-link href="#">View full details &rarr;</a>
     </div>
   </div>
 
@@ -287,6 +307,38 @@
   #cx-{{ sid }} .cx-dr__go.is-disabled { background: #cfc8bc; pointer-events: none; }
   #cx-{{ sid }} .cx-dr__keep { display: block; width: 100%; margin-top: 6px; padding: 8px; border: 0; background: none; font: inherit; font-size: 13px; color: var(--cx-muted); text-decoration: underline; cursor: pointer; }
   html.cx-dr-open { overflow: hidden; }
+  /* $25 voucher row */
+  #cx-{{ sid }} .cx-vch { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 12px; align-items: center; margin-top: 12px; padding: 10px; border: 1.5px dashed #d8b98e; border-radius: 10px; background: #fdf9f3; }
+  #cx-{{ sid }} .cx-vch__card { width: 58px; height: 40px; border-radius: 5px; background: linear-gradient(135deg, #2a1c12, #161311); color: #d4b06a; display: flex; align-items: center; justify-content: center; font-family: "Libre Baskerville", Georgia, serif; font-size: 15px; font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+  #cx-{{ sid }} .cx-vch__t { margin: 0; font-family: "Libre Baskerville", Georgia, serif; font-size: 14.5px; font-weight: 700; }
+  #cx-{{ sid }} .cx-vch__s { margin: 2px 0 0; font-size: 11.5px; line-height: 1.35; color: var(--cx-muted); }
+  #cx-{{ sid }} .cx-vch__tag { padding: 4px 9px; border-radius: 999px; background: #e3efe4; color: #2e6b45; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+  #cx-{{ sid }} .cx-vch.is-locked { opacity: .9; }
+  #cx-{{ sid }} .cx-vch.is-locked .cx-vch__card { filter: grayscale(.6); opacity: .7; }
+  #cx-{{ sid }} .cx-vch.is-locked .cx-vch__tag { background: #f1ebe4; color: var(--cx-red); }
+  /* quick view */
+  #cx-{{ sid }} .cx-qv { position: fixed; inset: 0; z-index: 2147483001; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  #cx-{{ sid }} .cx-qv[hidden] { display: none; }
+  #cx-{{ sid }} .cx-qv__bg { position: absolute; inset: 0; background: rgba(22,19,17,.55); animation: cxFade .2s ease; }
+  #cx-{{ sid }} .cx-qv__box { position: relative; width: min(520px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; padding: 16px; background: #fff; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.35); animation: cxUp .25s ease; }
+  #cx-{{ sid }} .cx-qv__x { position: absolute; top: 26px; right: 26px; z-index: 2; width: 36px; height: 36px; border: 0; border-radius: 50%; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.2); font-size: 22px; line-height: 1; cursor: pointer; }
+  #cx-{{ sid }} .cx-qv__stage { position: relative; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: #ece6de; }
+  #cx-{{ sid }} .cx-qv__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #cx-{{ sid }} .cx-qv__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border: 0; border-radius: 50%; background: rgba(255,255,255,.92); box-shadow: 0 2px 8px rgba(0,0,0,.18); font-size: 24px; line-height: 1; cursor: pointer; }
+  #cx-{{ sid }} .cx-qv__nav--p { left: 10px; } #cx-{{ sid }} .cx-qv__nav--n { right: 10px; }
+  #cx-{{ sid }} .cx-qv__count { position: absolute; right: 10px; bottom: 10px; padding: 3px 9px; border-radius: 999px; background: rgba(22,19,17,.75); color: #fff; font-size: 11.5px; font-weight: 700; }
+  #cx-{{ sid }} .cx-qv__thumbs { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; scrollbar-width: none; }
+  #cx-{{ sid }} .cx-qv__thumbs button { flex: 0 0 56px; height: 56px; padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; background: #ece6de; cursor: pointer; }
+  #cx-{{ sid }} .cx-qv__thumbs button.is-on { border-color: var(--cx-copper); }
+  #cx-{{ sid }} .cx-qv__thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #cx-{{ sid }} .cx-qv__title { margin: 14px 0 0; font-family: "Libre Baskerville", Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.25; }
+  #cx-{{ sid }} .cx-qv__price { margin: 6px 0 0; font-size: 15px; }
+  #cx-{{ sid }} .cx-qv__price span { color: var(--cx-red); font-weight: 700; margin-right: 8px; }
+  #cx-{{ sid }} .cx-qv__price s { color: #8f8379; }
+  #cx-{{ sid }} .cx-qv__sel { width: 100%; margin-top: 12px; padding: 11px 12px; border: 1px solid var(--cx-line); border-radius: 8px; font: inherit; font-size: 14px; background: #fff; }
+  #cx-{{ sid }} .cx-qv__add { width: 100%; min-height: 52px; margin-top: 14px; border: 0; border-radius: 10px; background: linear-gradient(90deg, #15100c 0%, #2a1c12 60%, #4b3220 100%); color: #fff; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+  #cx-{{ sid }} .cx-qv__add[disabled] { opacity: .6; }
+  #cx-{{ sid }} .cx-qv__link { display: block; margin-top: 10px; padding: 12px; border: 1px solid var(--cx-ink); border-radius: 10px; text-align: center; color: var(--cx-ink); font-size: 13.5px; font-weight: 700; letter-spacing: .04em; text-decoration: none; }
   #cx-{{ sid }} .cx-toast { position: fixed; left: 50%; bottom: 100px; z-index: 42; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #111; color: var(--cx-gold); border: 1px solid var(--cx-gold); border-radius: 999px; padding: 8px 16px; font-size: 13.5px; font-weight: 700; white-space: nowrap; transition: opacity .25s, transform .25s; }
   #cx-{{ sid }} .cx-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
   html.cx-bar-on .jda-cart-knop { opacity: 0 !important; pointer-events: none !important; }
@@ -372,7 +424,7 @@
     var copperIds = {}; try { JSON.parse(root.querySelector('[data-cx-copper]').textContent).forEach(function (id) { copperIds[id] = 1; }); } catch (e) {}
     var els = { set: root.querySelector('[data-cx-set]'), label: root.querySelector('[data-cx-label]'), prog: root.querySelector('[data-cx-prog]'), msg: root.querySelector('[data-cx-msg]'), go: root.querySelector('[data-cx-checkout]'),
       dr: root.querySelector('[data-cx-dr]'), drMsg: root.querySelector('[data-cx-dr-msg]'), drProg: root.querySelector('[data-cx-prog-dr]'), items: root.querySelector('[data-cx-items]'), other: root.querySelector('[data-cx-other]'),
-      sugWrap: root.querySelector('[data-cx-sug-wrap]'), sugTitle: root.querySelector('[data-cx-sug-title]'), sug: root.querySelector('[data-cx-sug]'), drSave: root.querySelector('[data-cx-dr-save]'), drGo: root.querySelector('[data-cx-dr-go]'), toast: root.querySelector('[data-cx-toast]') };
+      sugWrap: root.querySelector('[data-cx-sug-wrap]'), vch: root.querySelector('[data-cx-vch]'), sugTitle: root.querySelector('[data-cx-sug-title]'), sug: root.querySelector('[data-cx-sug]'), drSave: root.querySelector('[data-cx-dr-save]'), drGo: root.querySelector('[data-cx-dr-go]'), toast: root.querySelector('[data-cx-toast]') };
     var steps = [].slice.call(root.querySelectorAll('.cx-tier'));
     var lastKey = '', added = false, toastT = null, cartIds = {}, lastCart = { item_count: 0, items: [] };
     function showToast(t) { els.toast.textContent = t; els.toast.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(function () { els.toast.classList.remove('is-on'); }, 2000); }
@@ -423,6 +475,9 @@
           return '<div class="cx-up__item"><a href="' + esc(x.u) + '"><img src="' + esc(x.i) + '" alt="" loading="lazy" width="118" height="118"></a><p class="cx-up__name">' + esc(x.t) + '</p><p class="cx-up__price">' + (x.c > x.p ? '<s>' + fmt(x.c) + '</s>' : '') + '<span>' + fmt(x.p) + '</span></p><button type="button" class="cx-up__add" data-cx-add="' + x.v + '">+ Add</button></div>';
         }).join('');
       }
+      var vNeed = 2 - q.a;
+      els.vch.classList.toggle('is-locked', vNeed > 0);
+      els.vch.innerHTML = '<span class="cx-vch__card">$&#8203;25</span><div><p class="cx-vch__t">$&#8203;25 Voucher</p><p class="cx-vch__s">' + (vNeed > 0 ? 'Add ' + vNeed + ' more piece to unlock · emailed after your order' : 'Emailed after your order · use on your next order of $&#8203;75+') + '</p></div><span class="cx-vch__tag">' + (vNeed > 0 ? 'LOCKED' : 'FREE') + '</span>';
       var saved = (cart.original_total_price || 0) - (cart.total_price || 0);
       els.drSave.innerHTML = saved > 0 ? '<span>You save</span><b>' + fmt(saved) + '</b>' : '';
       if (q.a > 0) { els.drGo.classList.remove('is-disabled'); els.drGo.innerHTML = esc(LABELS.go) + ' · ' + priceHTML(cart); }
@@ -458,6 +513,50 @@
     root.querySelectorAll('[data-cx-close]').forEach(function (b) { b.addEventListener('click', closeDr); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !els.dr.hidden) closeDr(); });
 
+    /* quick view */
+    var qv = { m: root.querySelector('[data-cx-qvm]'), img: root.querySelector('[data-cx-qv-img]'), count: root.querySelector('[data-cx-qv-count]'), thumbs: root.querySelector('[data-cx-qv-thumbs]'),
+      title: root.querySelector('[data-cx-qv-title]'), price: root.querySelector('[data-cx-qv-price]'), sel: root.querySelector('[data-cx-qv-sel]'), add: root.querySelector('[data-cx-qv-add]'), link: root.querySelector('[data-cx-qv-link]'), imgs: [], i: 0, p: null };
+    function qvShow(i) {
+      if (!qv.imgs.length) return;
+      qv.i = (i + qv.imgs.length) % qv.imgs.length;
+      qv.img.src = qv.imgs[qv.i] + (qv.imgs[qv.i].indexOf('?') > -1 ? '&' : '?') + 'width=900';
+      qv.count.textContent = (qv.i + 1) + ' / ' + qv.imgs.length;
+      [].forEach.call(qv.thumbs.children, function (b, k) { b.classList.toggle('is-on', k === qv.i); });
+    }
+    function qvVariant() { var id = Number(qv.sel.hidden ? qv.p.variants[0].id : qv.sel.value); var v = qv.p.variants.filter(function (x) { return x.id === id; })[0] || qv.p.variants[0]; return v; }
+    function qvPrice() {
+      var v = qvVariant();
+      qv.price.innerHTML = '<span>' + fmt(v.price) + '</span>' + (v.compare_at_price > v.price ? '<s>' + fmt(v.compare_at_price) + '</s>' : '');
+      qv.add.setAttribute('data-cx-add', v.id); qv.add.disabled = !v.available;
+      qv.add.textContent = v.available ? LABELS.add.replace(/^\+\s*/, '') + ' · ' + fmt(v.price) : 'Sold out';
+    }
+    function qvOpen(handle, url) {
+      qv.m.hidden = false; document.documentElement.classList.add('cx-dr-open');
+      qv.title.textContent = ''; qv.price.textContent = ''; qv.thumbs.innerHTML = ''; qv.img.removeAttribute('src'); qv.link.href = url; qv.add.disabled = true;
+      fetch('/products/' + encodeURIComponent(handle) + '.js').then(function (r) { return r.json(); }).then(function (p) {
+        qv.p = p; qv.imgs = (p.images || []).map(function (s) { return s.indexOf('//') === 0 ? 'https:' + s : s; }).slice(0, 10);
+        qv.title.textContent = p.title;
+        qv.thumbs.innerHTML = qv.imgs.map(function (s, k) { return '<button type="button" data-cx-qv-go="' + k + '"><img src="' + esc(s + (s.indexOf('?') > -1 ? '&' : '?') + 'width=120') + '" alt="" loading="lazy"></button>'; }).join('');
+        qv.sel.hidden = p.variants.length < 2;
+        qv.sel.innerHTML = p.variants.map(function (v) { return '<option value="' + v.id + '"' + (v.available ? '' : ' disabled') + '>' + esc(v.title) + (v.available ? '' : ' – sold out') + '</option>'; }).join('');
+        var first = p.variants.filter(function (v) { return v.available; })[0]; if (first) qv.sel.value = first.id;
+        qvShow(0); qvPrice();
+      }).catch(function () { window.location.href = url; });
+    }
+    function qvClose() { qv.m.hidden = true; if (els.dr.hidden) document.documentElement.classList.remove('cx-dr-open'); }
+    qv.sel.addEventListener('change', qvPrice);
+    root.querySelectorAll('[data-cx-qv-close]').forEach(function (b) { b.addEventListener('click', qvClose); });
+    root.querySelectorAll('[data-cx-qv-step]').forEach(function (b) { b.addEventListener('click', function () { qvShow(qv.i + Number(b.getAttribute('data-cx-qv-step'))); }); });
+    qv.thumbs.addEventListener('click', function (e) { var b = e.target.closest('[data-cx-qv-go]'); if (b) qvShow(Number(b.getAttribute('data-cx-qv-go'))); });
+    var sx = null; qv.img.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    qv.img.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) qvShow(qv.i + (dx < 0 ? 1 : -1)); sx = null; });
+    root.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-cx-qv]');
+      if (!a || e.metaKey || e.ctrlKey) return;
+      e.preventDefault(); qvOpen(a.getAttribute('data-cx-qv'), a.getAttribute('href'));
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !qv.m.hidden) qvClose(); });
+
     var busy = false, queued = false, timer = null;
     function load() {
       if (busy) { queued = true; return; }
@@ -484,6 +583,7 @@
       add.disabled = true;
       var item = [{ id: Number(add.getAttribute('data-cx-add')), quantity: 1 }];
       var inSheet = !!add.closest('[data-cx-dr]');
+      if (add.closest('[data-cx-qvm]')) setTimeout(qvClose, 600);
       selfUpdate = true;
       var req = (window.jdCart && window.jdCart.add) ? window.jdCart.add(item, { open: false }) :
         fetch('/cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ items: item }) }).then(function (r) { if (!r.ok) throw new Error(); });
