@@ -194,8 +194,8 @@
   #cx-{{ sid }} .cx-card__media { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; background: #ece6de; }
   #cx-{{ sid }} .cx-card__img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
   @media (hover: hover) { #cx-{{ sid }} .cx-card__media:hover .cx-card__img { transform: scale(1.04); } }
-  #cx-{{ sid }} .cx-card__best { position: absolute; top: 0; left: 0; background: var(--cx-ink); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .14em; padding: 6px 9px; }
-  #cx-{{ sid }} .cx-card__best--gold { background: linear-gradient(135deg, #e6c77f 0%, #d4b06a 45%, #b8913f 100%); color: #161311; box-shadow: 0 2px 8px rgba(184,145,63,.35); }
+  #cx-{{ sid }} .cx-card__best { position: absolute; top: 10px; left: 10px; background: rgba(22,19,17,.92); color: #fff; font-size: 9.5px; font-weight: 700; letter-spacing: .14em; line-height: 1; padding: 6px 9px 5px; border-radius: 999px; box-shadow: 0 2px 6px rgba(0,0,0,.18); }
+  #cx-{{ sid }} .cx-card__best--gold { background: linear-gradient(135deg, #ecd18f 0%, #d4b06a 50%, #b8913f 100%); color: #161311; box-shadow: 0 2px 6px rgba(140,105,40,.3); }
   #cx-{{ sid }} .cx-card__save { position: absolute; top: 0; right: 0; background: var(--cx-copper); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 9px; }
   #cx-{{ sid }} .cx-card__title { margin: 12px 0 0; font-size: 16px; font-weight: 500; letter-spacing: .02em; line-height: 1.3; color: var(--cx-ink); text-decoration: none; }
   #cx-{{ sid }} .cx-card__price { margin: 5px 0 12px; display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; font-size: 14px; letter-spacing: .03em; }
@@ -313,7 +313,8 @@
     #cx-{{ sid }} .cx-card { contain-intrinsic-size: auto 320px; }
     #cx-{{ sid }} .cx-card__title { margin-top: 9px; font-size: 14.5px; }
     #cx-{{ sid }} .cx-card__price { font-size: 13px; margin-bottom: 9px; }
-    #cx-{{ sid }} .cx-card__best, #cx-{{ sid }} .cx-card__save { font-size: 8.5px; padding: 5px 6px; letter-spacing: .1em; }
+    #cx-{{ sid }} .cx-card__save { font-size: 8.5px; padding: 5px 6px; letter-spacing: .1em; }
+    #cx-{{ sid }} .cx-card__best { top: 7px; left: 7px; font-size: 8px; padding: 5px 7px 4px; letter-spacing: .12em; }
     #cx-{{ sid }} .cx-card__btn { min-height: 40px; font-size: 11.5px; letter-spacing: .08em; }
     #cx-{{ sid }} .cx-set { bottom: 8px; gap: 10px; padding: 8px 8px 8px 12px; }
     #cx-{{ sid }} .cx-set__msg { font-size: 12px; margin-top: 3px; }
