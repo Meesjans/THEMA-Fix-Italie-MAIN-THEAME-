@@ -1,0 +1,564 @@
+{
+  "sections": {
+    "page_style": {
+      "type": "sterling-page-style",
+      "settings": {
+        "page_background": "#ffffff",
+        "white_sliders": false,
+        "white_background": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size_desktop": 26,
+            "title_size_mobile": 20
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_color": "#000000",
+            "compare_price_color": "#515151",
+            "price_size": 20,
+            "price_weight": "600",
+            "compare_price_size": 15,
+            "compare_price_weight": "400",
+            "compare_price_position": "before",
+            "discount_display": "savings_badge",
+            "savings_badge_format": "percent",
+            "savings_badge_background": "#7a5434",
+            "savings_badge_text": "#ffffff",
+            "savings_badge_label": "",
+            "savings_badge_size": 13,
+            "savings_badge_weight": "700",
+            "savings_badge_padding_x": 9,
+            "savings_badge_padding_y": 4,
+            "savings_badge_radius": 3,
+            "savings_badge_gap": 8,
+            "savings_badge_uppercase": false,
+            "show_tax_note": false,
+            "sale_label": "Sale"
+          }
+        },
+        "trust_rows": {
+          "type": "custom_liquid",
+          "settings": {
+            "liquid": "<div class=\"cal-usps\">\n  <div class=\"cal-usp\"><span class=\"cal-usp__ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 12.5l4 4L18 8\"/></svg></span><div><p class=\"cal-usp__h\">24 Mystery Pieces, Totally Unique</p><p class=\"cal-usp__s\">Bracelets, rings, earrings, necklaces and anklets</p></div></div>\n  <div class=\"cal-usp\"><span class=\"cal-usp__ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 12.5l4 4L18 8\"/></svg></span><div><p class=\"cal-usp__h\">99.9% Pure Copper</p><p class=\"cal-usp__s\">The real thing, never brass or plated fakes</p></div></div>\n  <div class=\"cal-usp\"><span class=\"cal-usp__ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 12.5l4 4L18 8\"/></svg></span><div><p class=\"cal-usp__h\">Reusable Luxury Keepsake Box</p><p class=\"cal-usp__s\">Made to keep long after Christmas</p></div></div>\n  <div class=\"cal-usp\"><span class=\"cal-usp__ic\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 12.5l4 4L18 8\"/></svg></span><div><p class=\"cal-usp__h\">24 Pieces for Under $19 Each</p><p class=\"cal-usp__s\">Now 50% off this Christmas</p></div></div>\n</div>\n<style>\n.cal-usps{margin:18px 0 6px}\n.cal-usp{display:flex;align-items:flex-start;gap:14px;margin:0 0 16px}\n.cal-usp:last-child{margin-bottom:0}\n.cal-usp__ic{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#c98a4b;color:#fff;display:flex;align-items:center;justify-content:center;margin-top:1px}\n.cal-usp__ic svg{width:16px;height:16px}\n.cal-usp__h{margin:0;font-family:\"Libre Baskerville\",Georgia,\"Times New Roman\",serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:.01em;color:#111}\n.cal-usp__s{margin:3px 0 0;font-family:\"Libre Baskerville\",Georgia,\"Times New Roman\",serif;font-size:14.5px;line-height:1.4;color:#5b5b5b}\n@media (max-width:749px){.cal-usp__h{font-size:16px}.cal-usp__s{font-size:13.5px}.cal-usp{gap:12px}}\n</style>",
+            "placement": "info"
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variants": {
+          "type": "variant_picker",
+          "settings": {
+            "color_display": "variant_image",
+            "sold_out_display": "line",
+            "sold_out_clickable": true,
+            "sold_out_label": "Sold out",
+            "show_tooltip": true,
+            "color_trigger_words": "color, colour, couleur",
+            "show_color_labels": false,
+            "image_swatch_words": "pattern, print, style, design",
+            "image_swatch_display": "variant_circle",
+            "swatch_crop": "top",
+            "swatch_match_media": true,
+            "swatch_size": 56,
+            "variant_button_size": "small",
+            "variant_button_font_size": 15,
+            "option_separator": ":"
+          }
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "button_label": "",
+            "sold_out_label": "",
+            "font_scale": 100,
+            "sticky_label": ""
+          }
+        },
+        "payment_methods": {
+          "type": "payment_methods",
+          "settings": {
+            "use_brand_icons": true,
+            "icons_image_url": "",
+            "space_above": 12,
+            "space_below": 8,
+            "icons_image_width": 350,
+            "heading": "Tracked Shipping · 30 Day Guarantee",
+            "icon_width": 38,
+            "icon_height": 24,
+            "gap": 8,
+            "badge_background": "#ffffff",
+            "badge_border": "#d9dce1",
+            "badge_text": "#111111",
+            "custom_icon_1": "",
+            "custom_icon_1_label": "",
+            "custom_icon_2": "",
+            "custom_icon_2_label": "",
+            "custom_icon_3": "",
+            "custom_icon_3_label": "",
+            "custom_icon_4": "",
+            "custom_icon_4_label": "",
+            "show_visa": false,
+            "show_mastercard": false,
+            "show_amex": false,
+            "show_discover": false,
+            "show_maestro": false,
+            "show_union_pay": false,
+            "show_diners": false,
+            "show_jcb": false,
+            "show_elo": false,
+            "show_interac": false,
+            "show_paypal": true,
+            "show_venmo": false,
+            "show_apple_pay": false,
+            "show_google_pay": false,
+            "show_shop_pay": false,
+            "show_amazon_pay": false,
+            "show_meta_pay": false,
+            "show_alipay": false,
+            "show_affirm": false,
+            "show_klarna": false,
+            "show_ideal": false,
+            "show_bancontact": false,
+            "show_sofort": false,
+            "show_giropay": false,
+            "show_bitcoin": false
+          }
+        },
+        "upsell": {
+          "type": "custom_liquid",
+          "settings": {
+            "liquid": "{%- comment -%} Buy more, save more – change the collection handle, title or badge below {%- endcomment -%}\n{%- assign up_collection = collections['copper-bracelets'] -%}\n{%- assign up_title = 'Buy more, Save more' -%}\n{%- assign up_badge = '50% OFF' -%}\n{%- assign up_per_page = 3 -%}\n<div class=\"sup\" data-sup>\n  <div class=\"sup__head\">\n    <p class=\"sup__title\">{{ up_title }}</p>\n    {%- if up_badge != blank -%}<span class=\"sup__badge\">{{ up_badge }}</span>{%- endif -%}\n    <div class=\"sup__nav\">\n      <button type=\"button\" class=\"sup__arrow\" data-sup-prev aria-label=\"Previous\"><svg viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 3L5 8l5 5\"/></svg></button>\n      <button type=\"button\" class=\"sup__arrow\" data-sup-next aria-label=\"Next\"><svg viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 3l5 5-5 5\"/></svg></button>\n    </div>\n  </div>\n  <ul class=\"sup__list\">\n    {%- assign shown = 0 -%}\n    {%- for p in up_collection.products limit: 30 -%}\n      {%- if p.id != product.id and p.available -%}\n        {%- assign v = p.selected_or_first_available_variant -%}\n        <li class=\"sup__item\" data-sup-item>\n          <a class=\"sup__img\" href=\"{{ p.url }}\">{%- if p.featured_image -%}{{ p.featured_image | image_url: width: 160, height: 160, crop: 'center' | image_tag: loading: 'lazy', alt: p.title }}{%- endif -%}</a>\n          <div class=\"sup__info\">\n            <a class=\"sup__name\" href=\"{{ p.url }}\">{{ p.title }}</a>\n            <p class=\"sup__prices\"><span class=\"sup__price\">{{ v.price | money }}</span>{%- if v.compare_at_price > v.price -%}<s class=\"sup__compare\">{{ v.compare_at_price | money }}</s>{%- endif -%}</p>\n          </div>\n          {%- if p.has_only_default_variant -%}\n            <button type=\"button\" class=\"sup__add\" data-sup-add=\"{{ v.id }}\">+ Add</button>\n          {%- else -%}\n            <a class=\"sup__add\" href=\"{{ p.url }}\">+ Add</a>\n          {%- endif -%}\n        </li>\n        {%- assign shown = shown | plus: 1 -%}\n      {%- endif -%}\n    {%- endfor -%}\n  </ul>\n</div>\n<style>\n  .sup { margin-top: 18px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Inter, Roboto, Helvetica, Arial, sans-serif; }\n  .sup__head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }\n  .sup__title { margin: 0; font-size: 17px; font-weight: 700; color: #1a1a1a; }\n  .sup__badge { background: #7a5434; color: #fff; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; padding: 5px 9px; border-radius: 3px; white-space: nowrap; }\n  .sup__nav { margin-left: auto; display: flex; gap: 6px; }\n  .sup__arrow { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #d9d3c9; background: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #1a1a1a; padding: 0; }\n  .sup__arrow svg { width: 14px; height: 14px; }\n  .sup__arrow[disabled] { opacity: .35; cursor: default; }\n  .sup__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }\n  .sup__item { display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 14px; padding: 10px 12px; background: rgba(255,255,255,.55); border: 1px solid #e2ddd4; border-radius: 8px; }\n  .sup__item[hidden] { display: none; }\n  .sup__img { display: block; width: 64px; height: 64px; border-radius: 6px; overflow: hidden; background: #eee; }\n  .sup__img img { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sup__name { display: block; font-size: 13.5px; font-weight: 600; color: #1a1a1a; text-decoration: none; line-height: 1.3; }\n  .sup__prices { margin: 6px 0 0; display: flex; gap: 8px; align-items: baseline; font-size: 14px; }\n  .sup__price { color: #3c8a4e; font-weight: 700; }\n  .sup__compare { color: #c0392b; font-size: 13px; }\n  .sup__add { background: #1a1a1a; color: #fff !important; border: 0; border-radius: 6px; padding: 10px 14px; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; white-space: nowrap; font-family: inherit; }\n  .sup__add[aria-busy=\"true\"] { opacity: .6; }\n</style>\n<script>\n  (function () {\n    var root = document.currentScript && document.currentScript.previousElementSibling && document.currentScript.previousElementSibling.previousElementSibling;\n    if (!root || !root.matches('[data-sup]')) root = document.querySelector('[data-sup]');\n    if (!root) return;\n    var items = Array.prototype.slice.call(root.querySelectorAll('[data-sup-item]'));\n    var per = {{ up_per_page }};\n    var page = 0;\n    var pages = Math.max(1, Math.ceil(items.length / per));\n    var prev = root.querySelector('[data-sup-prev]');\n    var next = root.querySelector('[data-sup-next]');\n    function render() {\n      items.forEach(function (el, i) { el.hidden = Math.floor(i / per) !== page; });\n      prev.disabled = page === 0;\n      next.disabled = page >= pages - 1;\n    }\n    prev.addEventListener('click', function () { if (page > 0) { page--; render(); } });\n    next.addEventListener('click', function () { if (page < pages - 1) { page++; render(); } });\n    if (pages < 2) root.querySelector('.sup__nav').style.display = 'none';\n    render();\n\n    root.addEventListener('click', function (e) {\n      var btn = e.target.closest('button[data-sup-add]');\n      if (!btn) return;\n      btn.setAttribute('aria-busy', 'true');\n      fetch('/cart/add.js', {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },\n        body: JSON.stringify({ items: [{ id: Number(btn.getAttribute('data-sup-add')), quantity: 1 }] })\n      }).then(function (r) {\n        if (!r.ok) throw new Error('add failed');\n        btn.textContent = 'Added';\n        if (typeof window.upcartRefreshCart === 'function') { window.upcartRefreshCart(); }\n        if (typeof window.upcartOpenCart === 'function') { window.upcartOpenCart(); }\n        else {\n          var toggle = document.querySelector('[data-cart-toggle]');\n          if (toggle) toggle.click();\n        }\n      }).catch(function () {\n        window.location.href = '/cart';\n      }).finally(function () { btn.removeAttribute('aria-busy'); });\n    });\n  })();\n</script>",
+            "placement": "info"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "font_scale": 100,
+            "display_style": "accordion",
+            "accordion_heading": "Description",
+            "accordion_open_by_default": false
+          }
+        },
+        "acc_copper": {
+          "type": "accordion",
+          "settings": {
+            "font_scale": 100,
+            "heading": "How do I know if it's real copper?",
+            "content": "<p>Real copper is <strong>not magnetic</strong>. A lot of “copper” jewellery online is only a thin copper coating over cheaper metal, or mixed with iron or nickel – and that kind of piece will usually stick to a magnet.</p><p><strong>Try it yourself the day your piece arrives:</strong></p><ul><li>Take any fridge magnet</li><li>Hold it against your bracelet, ring or anklet</li><li>If it sticks – even slightly – it isn't solid copper</li></ul><p>Not happy with the result? You're covered by our <strong>30-day return guarantee</strong>. Questions about a specific piece? Email <strong>support@shopsterlingco.com</strong>.</p>",
+            "open_by_default": false
+          }
+        },
+        "acc_shipping": {
+          "type": "accordion",
+          "settings": {
+            "font_scale": 100,
+            "heading": "Shipping and returns",
+            "content": "<p>Free tracked shipping on every order. You'll receive a tracking code as soon as your order has been processed.</p><p>Not happy with your order? You can return it within 30 days of receiving it.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "trust_rows",
+        "separator",
+        "variants",
+        "buy",
+        "payment_methods",
+        "upsell",
+        "description",
+        "acc_copper",
+        "acc_shipping"
+      ],
+      "settings": {
+        "gallery_layout": "carousel_bottom_thumbnails",
+        "mobile_gallery_mode": "floating_dots",
+        "gallery_media_fit": "cover",
+        "show_zoom_button": true,
+        "zoom_button_style": "icon",
+        "zoom_button_position": "bottom_right",
+        "desktop_info_width": 48,
+        "enable_sticky_info": true,
+        "enable_sticky_bar": true,
+        "show_related_products": true,
+        "related_heading": "",
+        "related_count": 4
+      }
+    },
+    "atc_style": {
+      "type": "sterling-atc-style",
+      "settings": {
+        "enabled": true,
+        "apply_sticky": true,
+        "background": "#7a5434",
+        "text": "#ffffff",
+        "border": "#7a5434",
+        "background_hover": "#7a5434",
+        "text_hover": "#ffffff",
+        "border_hover": "#7a5434",
+        "font_style": "clean",
+        "font_size": 14,
+        "font_weight": 750,
+        "letter_spacing": 0,
+        "uppercase": true,
+        "height": 48,
+        "corner_radius": 3
+      }
+    },
+    "reasons": {
+      "type": "sterling-image-cards",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_19_04_59.png",
+            "title": "A 3,000-Year-Old Tradition",
+            "text": "<p>From ancient Egypt to India's Ayurvedic tradition, copper has been worn against the skin for <strong>more than 3,000 years</strong>. The Copper Edit brings that ritual into a modern, everyday piece.</p>"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_19_06_47.png",
+            "title": "Made for Every Day",
+            "text": "<p>Light enough to forget, solid enough to feel. Open, adjustable designs that slip on in seconds and stay comfortable <strong>from morning coffee to evening walk</strong>.</p>"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_19_08_25.png",
+            "title": "A Patina That's Yours Alone",
+            "text": "<p>Real copper reacts with your skin and the air. Over the weeks it develops a <strong>warm patina unique to you</strong> – or polish it back to its original shine with a soft cloth.</p>"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_19_09_23.png",
+            "title": "Solid Copper, Not Plated",
+            "text": "<p>No thin coating that flakes off after a month. <strong>Copper all the way through</strong> – check it yourself with a fridge magnet the day it arrives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "heading_before": "Why Copper Belongs on Your Wrist –",
+        "heading_accent": "Then & Now",
+        "heading_after": "",
+        "heading_size_desktop": 28,
+        "heading_size_mobile": 20,
+        "columns_desktop": "2",
+        "max_width": 1000,
+        "background": "#faf7f2",
+        "card_background": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "accent_color": "#b8893f",
+        "text_color": "#3a3a3a",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "combine": {
+      "type": "featured-collection",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "scheme-1",
+        "heading": "COMBINE & SAVE UP TO 25%",
+        "collection": "copper-bracelets",
+        "products_per_row": 4,
+        "rows": 1,
+        "enable_swipe_on_mobile": true,
+        "show_view_all": true,
+        "view_all_position": "header",
+        "view_all_style": "secondary",
+        "show_section_divider": false
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "scheme-1",
+        "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_19_07_58.png",
+        "subheading": "",
+        "heading": "The Copper Edit by Sterling & Co.",
+        "text": "<p><strong>Sterling & Co. Melbourne</strong> started with one idea: timeless pieces for women who know what they like.</p><p>ㅤ</p><p>The Copper Edit is our <strong>Black Friday collection</strong> – a hand-picked selection of solid copper bracelets, rings, anklets and earrings, chosen for their weight, their finish and the way they feel on the wrist.</p><p>ㅤ</p><p>Copper has been worn for thousands of years – by Egyptian queens, Roman women and generations of mothers and daughters since. <strong>We simply wanted to make that tradition easy to wear every single day.</strong></p><p>ㅤ</p><p>Every Copper Edit piece ships free, with tracking, and comes with our 30-day return guarantee. <strong>The Black Friday prices only last until the timer runs out.</strong></p>",
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "primary",
+        "text_alignment": "center",
+        "image_size": "66",
+        "image_ratio": "natural",
+        "column_gap": 60,
+        "padding_top": 75,
+        "padding_bottom": 75,
+        "image_max_height": 0,
+        "vertical_align": "center",
+        "layout": "left",
+        "show_section_divider": false,
+        "lazy_load_images": true
+      }
+    },
+    "ritual": {
+      "type": "image-with-text",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "scheme-1",
+        "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_19_04_59.png",
+        "subheading": "",
+        "heading": "A Ritual, Passed From Wrist to Wrist",
+        "text": "<p>For centuries, women put on a copper bracelet in the morning and simply… never took it off.</p><p>ㅤ</p><p>Not because of a trend. Because it was <strong>theirs</strong> – a small daily ritual that connected them to their mother, their grandmother and every woman before them.</p><p>ㅤ</p><p>No charger. No app. No schedule. <strong>Just warm copper on your skin, ageing with you.</strong></p><p>ㅤ</p><p>That's the feeling we wanted to bring back with The Copper Edit. Choose the piece that feels like you – and start your own ritual.</p>",
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "primary",
+        "text_alignment": "center",
+        "image_size": "66",
+        "image_ratio": "natural",
+        "column_gap": 60,
+        "padding_top": 75,
+        "padding_bottom": 75,
+        "image_max_height": 0,
+        "vertical_align": "center",
+        "layout": "right",
+        "show_section_divider": false,
+        "lazy_load_images": true
+      }
+    },
+    "also_like": {
+      "type": "featured-collection",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "scheme-1",
+        "heading": "WE'RE SURE YOU'LL LOVE THESE TOO",
+        "collection": "welness-home",
+        "products_per_row": 4,
+        "rows": 1,
+        "enable_swipe_on_mobile": true,
+        "show_view_all": true,
+        "view_all_position": "header",
+        "view_all_style": "link",
+        "show_section_divider": false
+      }
+    },
+    "comparison": {
+      "type": "sterling-comparison",
+      "settings": {
+        "us_name": "The Copper Edit",
+        "them_name": "OTHER BRANDS",
+        "us_points": "Solid Copper, Not Plated\nPasses the Magnet Test\nAdjustable, Fits Most Wrists\nFree Tracked Shipping\n30-Day Return Guarantee",
+        "them_points": "Thin Copper Plating\nSticks to a Magnet\nCoating Flakes Off in Weeks\nShipping Fees at Checkout\nHard-to-Reach Support",
+        "heading_size_desktop": 28,
+        "heading_size_mobile": 20,
+        "accent_color": "#b07c3c",
+        "panel_background": "#f3ece3",
+        "background": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "I've tried copper jewellery before and it didn't last. Why is this different?",
+            "answer": "<p>Most cheap “copper” jewellery is only plated or mixed with other metals, so the colour wears off fast. The Copper Edit pieces are solid copper – the colour you see goes all the way through. Do the magnet test the day it arrives.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Does copper actually do anything, or is it just a trend?",
+            "answer": "<p>Copper has been worn for over 3,000 years, and today it's especially loved by women who want a piece that feels meaningful, not just decorative. Many customers tell us it simply became part of their morning routine. We sell copper as jewellery – we don't make medical claims. If you have a health concern, please speak to your doctor.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Will copper turn my skin green?",
+            "answer": "<p>It can leave a harmless green tint on some skin – that's a natural reaction between real copper, skin and moisture, and it washes off with soap. A thin layer of clear nail polish on the inside of the piece prevents it.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I wear it in the shower or the ocean?",
+            "answer": "<ul><li>Washing your hands is fine</li><li>We recommend taking it off for swimming, especially in chlorine or salt water</li><li>Moisture speeds up the natural patina</li><li>Dry it after contact with water and store it dry</li></ul>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "How do I clean my copper?",
+            "answer": "<p>Love the patina? Do nothing. Want the shine back? Rub it with a soft cloth and a little lemon juice and salt (or ketchup), rinse and dry.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Will it fit my wrist?",
+            "answer": "<p>Most Copper Edit bracelets have an open, adjustable design. Gently squeeze or open it a little to fit your wrist – slowly, a little at a time.</p>"
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "How fast is shipping?",
+            "answer": "<p>Free tracked shipping on every order. Orders are processed within 3 business days and you'll receive your tracking link by email as soon as it ships.</p>"
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "question": "What if I'm not happy?",
+            "answer": "<p>You can return your order within <strong>30 days</strong> of receiving it. Just email support@shopsterlingco.com and we'll take care of the rest.</p>"
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe to pay on this site?",
+            "answer": "<p>Yes. All payments are encrypted with SSL/TLS, the same standard banks use. We never see or store your card details.</p>"
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>If your order hasn't shipped yet, email us as soon as possible at support@shopsterlingco.com and we'll do our best to change or cancel it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "heading": "Frequently asked questions",
+        "subheading": "",
+        "color_scheme": "scheme-1",
+        "content_width": 840
+      }
+    },
+    "trust": {
+      "type": "trust-points",
+      "blocks": {
+        "point_9744rp": {
+          "type": "point",
+          "settings": {
+            "icon": "shipping",
+            "icon_size": 30,
+            "title": "Free shipping",
+            "text": "<p>We always offer free shipping on every order.</p>"
+          }
+        },
+        "point_7AQdpr": {
+          "type": "point",
+          "settings": {
+            "icon": "shipping",
+            "custom_icon": "shopify://shop_images/shield-icon.svg",
+            "icon_size": 30,
+            "title": "Waterproof",
+            "text": "<p>All jewelry is built to last and made to be worn every day, anywhere.</p>"
+          }
+        },
+        "point_cm6Hin": {
+          "type": "point",
+          "settings": {
+            "icon": "return",
+            "icon_size": 30,
+            "title": "30-Day Return Guarantee",
+            "text": "<p>You can easily return or exchange your order within 30 days.</p>"
+          }
+        },
+        "point_9Tk8MP": {
+          "type": "point",
+          "settings": {
+            "icon": "shipping",
+            "custom_icon": "shopify://shop_images/heart-icon.svg",
+            "icon_size": 30,
+            "title": "Craftsmanship Guarantee",
+            "text": "<p>Every piece is backed by a lifetime craftsmanship guarantee. If you're not completely satisfied, we will personally make it right.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "point_9744rp",
+        "point_7AQdpr",
+        "point_cm6Hin",
+        "point_9Tk8MP"
+      ],
+      "name": "Trust points",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "icon_color": "#000000",
+        "custom_typography": true,
+        "title_font": "nunito_sans_n6",
+        "title_size_desktop": 16,
+        "title_size_mobile": 15.2,
+        "title_letter_spacing": 0.5,
+        "text_font": "nunito_sans_n4",
+        "text_size_desktop": 14.7,
+        "text_size_mobile": 14.1,
+        "text_letter_spacing": 0.3,
+        "subheading": "",
+        "heading": "",
+        "mobile_layout": "stacked",
+        "show_section_divider": false
+      }
+    }
+  },
+  "order": [
+    "page_style",
+    "main",
+    "atc_style",
+    "reasons",
+    "combine",
+    "story",
+    "ritual",
+    "also_like",
+    "comparison",
+    "faq",
+    "trust"
+  ]
+}
