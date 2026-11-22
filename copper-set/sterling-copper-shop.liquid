@@ -251,7 +251,9 @@
   #cx-{{ sid }} .cx-set__btn small s { opacity: .7; margin-right: 4px; }
   #cx-{{ sid }} .cx-set__btn.is-disabled { background: #cfc8bc; pointer-events: none; }
   /* progress line with tier stops */
-  #cx-{{ sid }} .cx-prog { position: relative; display: block; height: 30px; margin: 6px 8px 0 4px; }
+  #cx-{{ sid }} .cx-prog { position: relative; display: block; height: 30px; margin: 20px 8px 0 4px; }
+  #cx-{{ sid }} .cx-prog__gift { position: absolute; bottom: calc(100% + 3px); left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 2px 6px; border-radius: 4px; background: linear-gradient(135deg, #2a1c12, #161311); color: #d4b06a; font-size: 9px; font-weight: 700; letter-spacing: .04em; line-height: 1.3; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+  #cx-{{ sid }} .cx-prog__stop.is-on .cx-prog__gift { background: linear-gradient(135deg, #ecd18f, #b8913f); color: #161311; }
   #cx-{{ sid }} .cx-prog__track { position: absolute; left: 0; right: 0; top: 6px; height: 4px; border-radius: 4px; background: #eee5da; }
   #cx-{{ sid }} .cx-prog__fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: linear-gradient(90deg, var(--cx-copper-2), var(--cx-copper)); transition: width .4s ease; }
   #cx-{{ sid }} .cx-prog__stop { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
@@ -300,7 +302,10 @@
   #cx-{{ sid }} .cx-up__add { min-height: 34px; border: 0; border-radius: 6px; background: var(--cx-ink); color: #fff; font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; touch-action: manipulation; }
   #cx-{{ sid }} .cx-up__add[disabled] { opacity: .6; }
   #cx-{{ sid }} .cx-dr__foot { padding: 12px 18px calc(14px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--cx-line); }
-  #cx-{{ sid }} .cx-dr__save { margin: 0 0 8px; display: flex; justify-content: space-between; font-size: 13.5px; }
+  #cx-{{ sid }} .cx-dr__save { margin: 0 0 8px; display: flex; flex-direction: column; gap: 3px; font-size: 13.5px; }
+  #cx-{{ sid }} .cx-dr__row2 { display: flex; justify-content: space-between; gap: 10px; }
+  #cx-{{ sid }} .cx-dr__row2--v { font-size: 12.5px; color: #7a5434; }
+  #cx-{{ sid }} .cx-dr__row2--v b { color: #9a4e28; letter-spacing: .06em; }
   #cx-{{ sid }} .cx-dr__save b { color: #2e6b45; }
   #cx-{{ sid }} .cx-dr__go { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; border-radius: 10px; background: linear-gradient(90deg, #15100c 0%, #2a1c12 60%, #4b3220 100%); color: #fff; font-size: 15px; font-weight: 700; text-decoration: none; }
   #cx-{{ sid }} .cx-dr__go s { opacity: .65; font-weight: 500; }
@@ -442,14 +447,14 @@
       var html = '<span class="cx-prog__track"><span class="cx-prog__fill" style="width:' + (shown / maxN * 100) + '%"></span></span>';
       tiers.forEach(function (t) {
         var cls = (st.cur && t.n <= st.cur.n) ? ' is-on' : (st.next === t ? ' is-next' : '');
-        html += '<span class="cx-prog__stop' + cls + '" style="left:' + (t.n / maxN * 100) + '%"><span class="cx-prog__dot">' + (cls === ' is-on' ? '&#10003;' : '') + '</span><span class="cx-prog__lbl">-' + esc(t.pct) + '</span></span>';
+        html += '<span class="cx-prog__stop' + cls + '" style="left:' + (t.n / maxN * 100) + '%">' + (t.n === 2 ? '<span class="cx-prog__gift">$&#8203;25 card</span>' : '') + '<span class="cx-prog__dot">' + (cls === ' is-on' ? '&#10003;' : '') + '</span><span class="cx-prog__lbl">-' + esc(t.pct) + '</span></span>';
       });
       return html;
     }
     function msgHTML(q, st, long) {
       var piece = function (k) { return k + ' more piece' + (k === 1 ? '' : 's'); };
-      if (q.a === 0) return 'Add 2 pieces = <b>' + esc(tiers[0] ? tiers[0].pct : '') + ' off</b> your set';
-      if (!st.cur) return 'Add ' + piece(st.k) + ' = <b>' + esc(st.next.pct) + ' OFF</b>' + (long ? ' your whole set' : '');
+      if (q.a === 0) return 'Add 2 pieces = <b>' + esc(tiers[0] ? tiers[0].pct : '') + ' off + $&#8203;25 card</b>';
+      if (!st.cur) return 'Add ' + piece(st.k) + ' = <b>' + esc(st.next.pct) + ' OFF + $&#8203;25 card</b>' + (long ? ' for your next order' : '');
       if (st.next) return long ? '<span class="ok">&#10003; ' + esc(st.cur.pct) + ' off unlocked</span> · ' + piece(st.k) + ' = <b>' + esc(st.next.pct) + ' off</b>'
         : '<span class="ok">&#10003; ' + esc(st.cur.pct) + ' off</span> · ' + st.k + ' more = <b>' + esc(st.next.pct) + ' off</b>';
       return '<span class="ok">&#10003; ' + esc(LABELS.all) + '</span>';
@@ -479,7 +484,8 @@
       els.vch.classList.toggle('is-locked', vNeed > 0);
       els.vch.innerHTML = '<span class="cx-vch__card">$&#8203;25</span><div><p class="cx-vch__t">$&#8203;25 Voucher</p><p class="cx-vch__s">' + (vNeed > 0 ? 'Add ' + vNeed + ' more piece to unlock · emailed after your order' : 'Emailed after your order · use on your next order of $&#8203;75+') + '</p></div><span class="cx-vch__tag">' + (vNeed > 0 ? 'LOCKED' : 'FREE') + '</span>';
       var saved = (cart.original_total_price || 0) - (cart.total_price || 0);
-      els.drSave.innerHTML = saved > 0 ? '<span>You save</span><b>' + fmt(saved) + '</b>' : '';
+      els.drSave.innerHTML = (saved > 0 ? '<span class="cx-dr__row2"><span>You save</span><b>' + fmt(saved) + '</b></span>' : '')
+        + (q.a >= 2 ? '<span class="cx-dr__row2 cx-dr__row2--v"><span>+ $&#8203;25 voucher for your next order</span><b>FREE</b></span>' : '');
       if (q.a > 0) { els.drGo.classList.remove('is-disabled'); els.drGo.innerHTML = esc(LABELS.go) + ' · ' + priceHTML(cart); }
       else { els.drGo.classList.add('is-disabled'); els.drGo.textContent = LABELS.empty; }
     }
