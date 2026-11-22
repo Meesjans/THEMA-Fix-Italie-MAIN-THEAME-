@@ -1,0 +1,420 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "hero",
+      "blocks": {
+        "slide": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_16_nov_2026_12_37_06.png",
+            "mobile_image": "shopify://shop_images/ChatGPT-afbeelding_16_nov_2026_12_37_06.png",
+            "eyebrow": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "slide"
+      ],
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "desktop_height": 700,
+        "mobile_height": 480,
+        "enable_parallax": false,
+        "auto_change_slides": false,
+        "change_images_every": 5,
+        "lazy_load_images": false,
+        "desktop_natural_height": true,
+        "desktop_text_vertical": "center",
+        "desktop_text_horizontal": "left",
+        "desktop_heading_size": 88,
+        "desktop_body_size": 17,
+        "mobile_natural_height": true,
+        "mobile_text_vertical": "end",
+        "mobile_text_horizontal": "left",
+        "mobile_heading_size": 48,
+        "mobile_body_size": 15
+      }
+    },
+    "set_builder": {
+      "type": "sterling-copper-shop",
+      "blocks": {
+        "cat_all": {
+          "type": "category",
+          "settings": {
+            "label": "All",
+            "tag": ""
+          }
+        },
+        "cat_br": {
+          "type": "category",
+          "settings": {
+            "label": "Bracelets",
+            "tag": "Bracelets"
+          }
+        },
+        "cat_ri": {
+          "type": "category",
+          "settings": {
+            "label": "Rings",
+            "tag": "Rings"
+          }
+        },
+        "cat_ne": {
+          "type": "category",
+          "settings": {
+            "label": "Necklaces",
+            "tag": "Necklaces"
+          }
+        },
+        "cat_ea": {
+          "type": "category",
+          "settings": {
+            "label": "Earrings",
+            "tag": "Earrings"
+          }
+        },
+        "cat_an": {
+          "type": "category",
+          "settings": {
+            "label": "Anklets",
+            "tag": "Anklets"
+          }
+        },
+        "cat_se": {
+          "type": "category",
+          "settings": {
+            "label": "Sets",
+            "tag": "Sets"
+          }
+        },
+        "cat_we": {
+          "type": "category",
+          "settings": {
+            "label": "Wellness",
+            "tag": "Wellness"
+          }
+        },
+        "cat_adv": {
+          "type": "category",
+          "settings": {
+            "label": "Advent Calendar",
+            "tag": "Advent"
+          }
+        }
+      },
+      "block_order": [
+        "cat_all",
+        "cat_adv",
+        "cat_br",
+        "cat_ri",
+        "cat_ne",
+        "cat_ea",
+        "cat_an",
+        "cat_se",
+        "cat_we"
+      ],
+      "settings": {
+        "collection": "",
+        "heading": "Pre-Black Friday Sale",
+        "badge": "Ends today",
+        "subheading": "Mix & match any copper pieces. The more you add, the more you save.",
+        "best_label": "Best value",
+        "ladder_note": "Applied automatically at checkout · on top of the sale price",
+        "count_label": "PIECES",
+        "initial_count": 24,
+        "more_count": 24,
+        "best_count": 8,
+        "bestsellers": [
+          "root-copper-bracelet",
+          "coras-petal-copper-bracelet-copy",
+          "coras-tress-copper-anklet",
+          "coras-entwine-copper-anklet",
+          "coras-seed-copper-anklet",
+          "veras-tide-copper-bracelet-3"
+        ],
+        "badge_text": "BESTSELLER",
+        "add_label": "+ Add to set",
+        "added_label": "Added ✓",
+        "choose_label": "Choose option",
+        "owner_title": "A note from Margaret & Charlotte",
+        "owner_text": "<p>We chose every piece in The Copper Edit ourselves: solid copper, warm in tone and made to be worn every day. This Pre-Black Friday we wanted to make gifting easy, so the more pieces you add to your set, the more you save, up to 25% extra.</p>",
+        "owner_sign": "With love, Margaret & Charlotte",
+        "tiers": "2:10%,3:15%,4:20%,5:25%",
+        "unlocked_text": "25% off unlocked – your best price",
+        "empty_button": "Add pieces",
+        "checkout_label": "Checkout",
+        "gold_product": "root-copper-bracelet"
+      }
+    },
+    "intro": {
+      "type": "sterling-copper-intro",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "pure",
+            "label": "99.9% PURE COPPER"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "pencil",
+            "label": "3000 YEARS OLD TRADITION"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "users",
+            "label": "ADJUSTABLE FIT"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "label": "FREE SHIPPING"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "band_background": "#f4f0e8",
+        "band_background_2": "#efe9df",
+        "divider_color": "#ddd5c8",
+        "show_stars": true,
+        "star_color": "#c9934a",
+        "rating_text": "<p><strong>4.7/5</strong> – Loved by our customers</p>",
+        "show_urgency": false,
+        "urgency_title": "Pre-Black Friday Sale – up to 50% off",
+        "urgency_text": "<p>This is our <strong>final copper collection</strong> and most designs are almost sold out. Once a design is gone, it won't be made again. <strong>Order today</strong> to secure yours.</p>",
+        "show_stock_bar": true,
+        "stock_label": "Stock remaining",
+        "stock_value": "Very low",
+        "stock_bar_percent": 14,
+        "urgency_color": "#b3261e",
+        "urgency_background": "#fff6f2",
+        "urgency_border": "#f0c9bd",
+        "show_cards": false,
+        "cards_heading": "The more you take, the more you save",
+        "card_1_emoji": "🛍️",
+        "card_1_title": "Buy 2",
+        "card_1_value": "10%",
+        "card_2_emoji": "🎁",
+        "card_2_title": "Buy 3",
+        "card_2_value": "15%",
+        "card_3_emoji": "🔥",
+        "card_3_title": "Buy 4",
+        "card_3_value": "20%",
+        "card_4_emoji": "👑",
+        "card_4_title": "Buy 5+",
+        "card_4_value": "25%",
+        "card_subtext": "Extra off",
+        "highlight_last": true,
+        "best_label": "Best deal",
+        "best_background": "#8b4a2b",
+        "note": "<p><strong>Note: Most pieces are open and adjustable, so there is no size to choose.</strong></p>",
+        "text": "<p>Every piece is solid copper, through and through, chosen for its weight, its finish and the way it feels on the wrist. <strong>One piece at a time, the way it is meant to be.</strong></p><p>Nothing plated. Nothing hidden.</p>",
+        "sale_text_content": "",
+        "sale_background": "#f9ece3",
+        "sale_border": "#ebcdbb",
+        "sale_text": "#8a3f28",
+        "sale_dot": "#d98c72",
+        "background": "#ffffff",
+        "text_color": "#2b2421",
+        "muted_color": "#555049",
+        "accent_color": "#8b4a2b",
+        "card_background": "#f9f3ec",
+        "card_border": "#e3d5c3",
+        "below_enabled": true,
+        "below_background": "#f1efea",
+        "pagination_button": "#e7ddcb",
+        "pagination_text": "#1a1a1a",
+        "padding_bottom": 44,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "copper_layout": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<style>\n/* Copper intro: brand text first, then the note, then the discount cards (same order as the reference) */\n.section-sterling-copper-intro .scc__body{display:flex;flex-direction:column}\n.section-sterling-copper-intro .scc__text{order:-2;margin:0 0 4px!important;padding:0!important;border-top:0!important}\n.section-sterling-copper-intro .scc__note{order:-1;margin:12px 0 0!important}\n.section-sterling-copper-intro .scc__note-icon{display:none}\n</style>"
+      }
+    },
+    "reviews": {
+      "type": "sterling-review-cards",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_18_12_07.png",
+            "rating": 5,
+            "text": "<p>“Absolutely love these copper bracelets. They’re comfortable, beautifully made and I wear them every day!”</p>",
+            "author": "Carol B.",
+            "location": ""
+          }
+        },
+        "review_pEkhNb": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Profielportret_met_koperen_oorbel.png",
+            "rating": 5,
+            "text": "<p><em>\"I bought those earrings expecting to wear them occasionally. It's now the first thing I put on in the morning and the last thing I take off. They just became part of me.\"</em></p>",
+            "author": "Amanda L.",
+            "location": ""
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_18_07_48.png",
+            "rating": 5,
+            "text": "<p>“Beautiful anklet! So comfortable and looks lovely on. I wear it every day.”</p>",
+            "author": "Linda M.",
+            "location": ""
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT-afbeelding_5_okt_2026_18_07_01.png",
+            "rating": 5,
+            "text": "<p>“Such a gorgeous bracelet! Beautiful quality and even nicer in person.”</p>",
+            "author": "Susan K.",
+            "location": ""
+          }
+        },
+        "review_R3Xnw7": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Gehamerde_rosegouden_oorbellen_aan_zee.png",
+            "rating": 5,
+            "text": "<p><em>\"Wore them every day for two months — through the shower, through work, through everything. Still looks exactly like day one. Real copper ages beautifully. This is the real thing.\"</em></p>",
+            "author": "Rebecca M.",
+            "location": ""
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "review_pEkhNb",
+        "r2",
+        "r3",
+        "review_R3Xnw7"
+      ],
+      "settings": {
+        "heading": "What our customers say",
+        "heading_italic": true,
+        "heading_size_desktop": 26,
+        "heading_size_mobile": 19,
+        "font_style": "sans",
+        "text_size_desktop": 15,
+        "text_size_mobile": 14.5,
+        "image_ratio": "square",
+        "per_view_desktop": 3.2,
+        "per_view_mobile": 1,
+        "gap_desktop": 20,
+        "gap_mobile": 14,
+        "max_width": 1360,
+        "background": "#f1efea",
+        "card_background": "#ffffff",
+        "card_border": "#e3e0da",
+        "star_color": "#c9a24a",
+        "heading_color": "#1a1a1a",
+        "text_color": "#2b2b2b",
+        "arrow_color": "#1a1a1a",
+        "padding_top": 72,
+        "padding_bottom": 64,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 52
+      }
+    },
+    "trust": {
+      "type": "trust-points",
+      "blocks": {
+        "point_shipping": {
+          "type": "point",
+          "settings": {
+            "icon": "shipping",
+            "icon_size": 56,
+            "title": "FREE SHIPPING",
+            "text": "<p>We offer free shipping incl. Track & Trace to Australia!</p>"
+          }
+        },
+        "point_moneyback": {
+          "type": "point",
+          "settings": {
+            "icon": "return",
+            "icon_size": 56,
+            "title": "MONEY BACK GUARANTEE",
+            "text": "<p>You have 30 days from receiving your order to decide whether to keep the product or return it.</p>"
+          }
+        },
+        "point_securecheckout": {
+          "type": "point",
+          "settings": {
+            "icon": "secure",
+            "custom_icon": "shopify://shop_images/icon-secure-checkout.png",
+            "icon_size": 56,
+            "title": "SECURE CHECKOUT",
+            "text": "<p>Shop with confidence. All payments are encrypted and processed through secure, certified systems.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "point_shipping",
+        "point_moneyback",
+        "point_securecheckout"
+      ],
+      "name": "Trust points",
+      "settings": {
+        "heading_font_scale": 100,
+        "body_font_scale": 100,
+        "color_scheme": "",
+        "icon_color": "#000000",
+        "custom_typography": true,
+        "title_font": "nunito_sans_n6",
+        "title_size_desktop": 16,
+        "title_size_mobile": 15.2,
+        "title_letter_spacing": 0.5,
+        "text_font": "nunito_sans_n4",
+        "text_size_desktop": 14.7,
+        "text_size_mobile": 14.1,
+        "text_letter_spacing": 0.3,
+        "subheading": "",
+        "heading": "",
+        "mobile_layout": "stacked",
+        "show_section_divider": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "set_builder",
+    "intro",
+    "copper_layout",
+    "reviews",
+    "trust"
+  ]
+}
