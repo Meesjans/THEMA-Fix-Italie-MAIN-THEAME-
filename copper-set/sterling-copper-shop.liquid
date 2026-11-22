@@ -1,0 +1,553 @@
+{%- comment -%}
+  Sterling – Copper shop (copper-bracelets collection), clean grid version.
+  - Slim deal strip with the stacked-discount tiers (lights up as the set grows).
+  - Text category chips, then the product grid straight away (products high on the page).
+  - Clean cards: square photo, SAVE xx% tag, BESTSELLER on the first pieces, strike price + sale price, "+ Add to set".
+  - Set bar (= cart) fixed at the bottom with set slots, savings and next-tier message.
+  - Upsell sheet after every add: "add 1 more & save x%" with one-tap suggestions.
+  The set IS the cart (/cart/add.js); totals come from /cart.js, so Shopify's automatic discounts are what the
+  shopper sees. Tier lines in the settings must match the automatic discounts in Shopify.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign sid = section.id
+  assign coll = s.collection
+  if coll == blank
+    assign coll = collection
+  endif
+  assign best_handles = ''
+  for p in s.bestsellers
+    assign best_handles = best_handles | append: '|' | append: p.handle | append: '|'
+  endfor
+  assign tier_list = s.tiers | split: ','
+-%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
+<div class="cx" id="cx-{{ sid }}" data-tiers="{{ s.tiers | escape }}" data-initial="{{ s.initial_count }}" data-step="{{ s.more_count }}">
+
+  <div class="cx-deal">
+    <div class="cx-deal__head">
+      <p class="cx-deal__title">{{ s.heading }}{% if s.badge != blank %} <span class="cx-deal__badge">{{ s.badge }}</span>{% endif %}</p>
+      <p class="cx-deal__sub">{{ s.subheading }}</p>
+    </div>
+    <ol class="cx-tiers" data-cx-ladder>
+      {%- for t in tier_list -%}
+        {%- assign tp = t | split: ':' -%}
+        <li class="cx-tier{% if forloop.last %} is-best{% endif %}" data-n="{{ tp[0] | strip }}">
+          {%- if forloop.last -%}<span class="cx-tier__tag">{{ s.best_label }}</span>{%- endif -%}
+          <span class="cx-tier__n">Buy {{ tp[0] | strip }}{% if forloop.last %}+{% endif %}</span>
+          <span class="cx-tier__pct">{{ tp[1] | strip }} off</span>
+        </li>
+      {%- endfor -%}
+    </ol>
+    {%- if s.ladder_note != blank -%}<p class="cx-deal__note">{{ s.ladder_note }}</p>{%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="cx-cats" aria-label="Filter pieces">
+      {%- for block in section.blocks -%}
+        <button type="button" class="cx-cat{% if forloop.first %} is-active{% endif %}" data-cx-cat="{{ block.settings.tag | downcase | strip }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</button>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <p class="cx-count"><span data-cx-count>{{ coll.products_count }}</span>&nbsp;{{ s.count_label }}</p>
+
+  {%- assign sug_max = s.suggest_max | default: 100 | times: 100 -%}
+  {%- capture copper_ids -%}[{%- paginate coll.products by 250 -%}{%- for p in coll.products -%}{{ p.id }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}{%- endpaginate -%}]{%- endcapture -%}
+  {%- capture suggest_json -%}[
+    {%- assign sc = 0 -%}
+    {%- paginate coll.products by 250 -%}
+    {%- for p in coll.products -%}
+      {%- if sc < 16 and p.available and p.variants.size == 1 and p.featured_image and p.price <= sug_max -%}
+        {%- assign v = p.first_available_variant -%}
+        {%- if sc > 0 -%},{%- endif -%}
+        {"v":{{ v.id }},"t":{{ p.title | json }},"u":{{ p.url | json }},"i":{{ p.featured_image | image_url: width: 240 | json }},"p":{{ v.price }},"c":{{ v.compare_at_price | default: 0 }}}
+        {%- assign sc = sc | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- endpaginate -%}
+  ]{%- endcapture -%}
+
+  <div class="cx-grid">
+    {%- paginate coll.products by 250 -%}
+      {%- for p in coll.products -%}
+        {%- liquid
+          assign v = p.selected_or_first_available_variant
+          assign tagstr = p.tags | join: ' ' | downcase
+          assign key = '|' | append: p.handle | append: '|'
+          assign is_best = false
+          if forloop.index <= s.best_count or best_handles contains key
+            assign is_best = true
+          endif
+          assign save = 0
+          if v.compare_at_price > v.price
+            assign save = v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price
+          endif
+        -%}
+        <div class="cx-card" data-cx-card data-tags=" {{ tagstr }} "{% if forloop.index > s.initial_count %} hidden{% endif %}>
+          <a class="cx-card__media" href="{{ p.url }}">
+            {%- if p.featured_image -%}
+              {%- if forloop.index <= 4 -%}
+                {{ p.featured_image | image_url: width: 600 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '300, 450, 600', sizes: '(max-width: 749px) 47vw, (max-width: 1199px) 31vw, 300px', alt: p.title, class: 'cx-card__img' }}
+              {%- else -%}
+                {{ p.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', decoding: 'async', widths: '300, 450, 600', sizes: '(max-width: 749px) 47vw, (max-width: 1199px) 31vw, 300px', alt: p.title, class: 'cx-card__img' }}
+              {%- endif -%}
+            {%- endif -%}
+            {%- if is_best -%}<span class="cx-card__best">{{ s.badge_text }}</span>{%- endif -%}
+            {%- if save > 0 -%}<span class="cx-card__save">Save {{ save }}%</span>{%- endif -%}
+          </a>
+          <a class="cx-card__title" href="{{ p.url }}">{{ p.title }}</a>
+          <p class="cx-card__price">{%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money_with_currency }}</s>{%- endif -%}<span>{{ v.price | money_with_currency }}</span></p>
+          {%- if p.available == false -%}
+            <button type="button" class="cx-card__btn" disabled>Sold out</button>
+          {%- elsif p.variants.size > 1 -%}
+            <a class="cx-card__btn" href="{{ p.url }}">{{ s.choose_label }}</a>
+          {%- else -%}
+            <button type="button" class="cx-card__btn" data-cx-add="{{ v.id }}">{{ s.add_label }}</button>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    {%- endpaginate -%}
+  </div>
+  <div class="cx-more-wrap"><button type="button" class="cx-more" data-cx-more hidden>Show <span data-cx-more-n></span> more pieces</button></div>
+
+  {%- if s.owner_text != blank -%}
+    <div class="cx-owner">
+      <p class="cx-owner__title">{{ s.owner_title }}</p>
+      <div class="cx-owner__text">{{ s.owner_text }}</div>
+      {%- if s.owner_sign != blank -%}<p class="cx-owner__sign">{{ s.owner_sign }}</p>{%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} copper set drawer = the copper cart (opens after every add and when the bar is tapped) {%- endcomment -%}
+  <div class="cx-dr" data-cx-dr hidden>
+    <div class="cx-dr__bg" data-cx-close></div>
+    <div class="cx-dr__panel" role="dialog" aria-modal="true" aria-label="{{ s.drawer_title | escape }}">
+      <div class="cx-dr__head">
+        <p class="cx-dr__title">{{ s.drawer_title }}</p>
+        <button type="button" class="cx-dr__x" data-cx-close aria-label="Close">&times;</button>
+      </div>
+      <div class="cx-dr__body">
+        <p class="cx-dr__msg" data-cx-dr-msg></p>
+        <div class="cx-prog" data-cx-prog-dr></div>
+        <div class="cx-dr__sug" data-cx-sug-wrap hidden>
+          <p class="cx-dr__sugt" data-cx-sug-title></p>
+          <div class="cx-dr__row" data-cx-sug></div>
+        </div>
+        <ul class="cx-dr__items" data-cx-items></ul>
+        <p class="cx-dr__other" data-cx-other hidden></p>
+      </div>
+      <div class="cx-dr__foot">
+        <p class="cx-dr__save" data-cx-dr-save></p>
+        <a class="cx-dr__go" href="/checkout" data-cx-dr-go>{{ s.checkout_label }}</a>
+        <button type="button" class="cx-dr__keep" data-cx-close>{{ s.keep_label }}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cx-set" data-cx-set aria-live="polite">
+    <button type="button" class="cx-set__left" data-cx-open aria-label="View your set">
+      <span class="cx-set__top"><span class="cx-set__label" data-cx-label></span><span class="cx-set__view">View set</span></span>
+      <span class="cx-prog cx-prog--bar" data-cx-prog></span>
+      <span class="cx-set__msg" data-cx-msg></span>
+    </button>
+    <a class="cx-set__btn is-disabled" href="/checkout" data-cx-checkout aria-disabled="true">{{ s.empty_button }}</a>
+  </div>
+  <div class="cx-toast" data-cx-toast role="status" aria-live="polite"></div>
+  <script type="application/json" data-cx-suggest>{{ suggest_json }}</script>
+  <script type="application/json" data-cx-copper>{{ copper_ids }}</script>
+</div>
+
+<style>
+  #cx-{{ sid }} { --cx-ink: #161311; --cx-copper: #9a4e28; --cx-copper-2: #b8693d; --cx-red: #a8321b; --cx-muted: #7a6e65; --cx-line: #e2d9cf; --cx-gold: #d4b06a;
+    width: 100%; min-width: 0; max-width: 1440px; margin: 0 auto; padding: 0 32px 120px; overflow-x: clip;
+    font-family: "Red Hat Display", -apple-system, Arial, sans-serif; color: var(--cx-ink); }
+  #cx-{{ sid }} * { box-sizing: border-box; }
+  /* deal strip */
+  #cx-{{ sid }} .cx-deal { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 28px; align-items: center; margin: 18px 0 14px; padding: 16px 20px; background: #161311; color: #fff; border-radius: 4px; }
+  #cx-{{ sid }} .cx-deal__title { margin: 0; font-family: "Libre Baskerville", Georgia, serif; font-size: 21px; font-weight: 700; color: var(--cx-gold); line-height: 1.2; }
+  #cx-{{ sid }} .cx-deal__badge { display: inline-block; vertical-align: middle; margin-left: 6px; padding: 3px 9px; border-radius: 999px; background: var(--cx-gold); color: #111; font-family: "Red Hat Display", Arial, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  #cx-{{ sid }} .cx-deal__sub { margin: 4px 0 0; font-size: 14px; color: rgba(255,255,255,.78); }
+  #cx-{{ sid }} .cx-deal__note { grid-column: 1 / -1; margin: 0; font-size: 12px; color: rgba(255,255,255,.6); }
+  #cx-{{ sid }} .cx-tiers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(92px, 1fr)); gap: 8px; }
+  #cx-{{ sid }} .cx-tier { position: relative; display: flex; flex-direction: column; align-items: center; padding: 9px 6px 8px; border: 1px solid rgba(212,176,106,.4); border-radius: 4px; background: #241e19; transition: background .25s, border-color .25s, color .25s; }
+  #cx-{{ sid }} .cx-tier.is-best { border-color: var(--cx-gold); }
+  #cx-{{ sid }} .cx-tier.is-on { background: var(--cx-gold); border-color: var(--cx-gold); color: #111; }
+  #cx-{{ sid }} .cx-tier.is-next { border-color: #fff; }
+  #cx-{{ sid }} .cx-tier__tag { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--cx-gold); color: #111; font-size: 8.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 2px 6px; border-radius: 999px; }
+  #cx-{{ sid }} .cx-tier__n { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+  #cx-{{ sid }} .cx-tier__pct { font-size: 17px; font-weight: 700; color: var(--cx-gold); white-space: nowrap; }
+  #cx-{{ sid }} .cx-tier.is-on .cx-tier__pct { color: #111; }
+  /* categories */
+  #cx-{{ sid }} .cx-cats { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 4px; -webkit-overflow-scrolling: touch; }
+  #cx-{{ sid }} .cx-cats::-webkit-scrollbar { display: none; }
+  #cx-{{ sid }} .cx-cat { flex: 0 0 auto; padding: 8px 15px; border: 1px solid var(--cx-line); border-radius: 999px; background: #fff; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: #5b4f46; cursor: pointer; }
+  #cx-{{ sid }} .cx-cat.is-active { background: var(--cx-ink); border-color: var(--cx-ink); color: #fff; }
+  #cx-{{ sid }} .cx-count { display: flex; align-items: center; gap: 10px; margin: 12px 0 14px; font-size: 12px; letter-spacing: .14em; color: var(--cx-muted); text-transform: uppercase; }
+  #cx-{{ sid }} .cx-count::after { content: ""; flex: 1; height: 1px; background: var(--cx-line); }
+  /* grid + cards */
+  #cx-{{ sid }} .cx-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px 24px; }
+  #cx-{{ sid }} .cx-card { display: flex; flex-direction: column; min-width: 0; content-visibility: auto; contain-intrinsic-size: auto 470px; }
+  #cx-{{ sid }} .cx-card[hidden] { display: none !important; }
+  #cx-{{ sid }} .cx-card__media { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; background: #ece6de; }
+  #cx-{{ sid }} .cx-card__img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+  @media (hover: hover) { #cx-{{ sid }} .cx-card__media:hover .cx-card__img { transform: scale(1.04); } }
+  #cx-{{ sid }} .cx-card__best { position: absolute; top: 0; left: 0; background: var(--cx-ink); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .14em; padding: 6px 9px; }
+  #cx-{{ sid }} .cx-card__save { position: absolute; top: 0; right: 0; background: var(--cx-copper); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 9px; }
+  #cx-{{ sid }} .cx-card__title { margin: 12px 0 0; font-size: 16px; font-weight: 500; letter-spacing: .02em; line-height: 1.3; color: var(--cx-ink); text-decoration: none; }
+  #cx-{{ sid }} .cx-card__price { margin: 5px 0 12px; display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; font-size: 14px; letter-spacing: .03em; }
+  #cx-{{ sid }} .cx-card__price s { color: #8f8379; }
+  #cx-{{ sid }} .cx-card__price span { color: var(--cx-red); font-weight: 700; }
+  #cx-{{ sid }} .cx-card__btn { margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 42px; border: 1px solid var(--cx-ink); border-radius: 2px;
+    background: transparent; color: var(--cx-ink); font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; cursor: pointer; touch-action: manipulation; transition: background .2s, color .2s; }
+  @media (hover: hover) { #cx-{{ sid }} .cx-card__btn:not([disabled]):hover { background: var(--cx-ink); color: #fff; } }
+  #cx-{{ sid }} .cx-card__btn[disabled] { opacity: .45; cursor: default; }
+  #cx-{{ sid }} .cx-card__btn.is-added, #cx-{{ sid }} .cx-card__btn.is-added[disabled] { background: #2e6b45; border-color: #2e6b45; color: #fff; opacity: 1; }
+  #cx-{{ sid }} .cx-more-wrap { text-align: center; margin-top: 34px; }
+  #cx-{{ sid }} .cx-more { min-width: 240px; min-height: 46px; border: 1px solid var(--cx-ink); background: #fff; border-radius: 2px; font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+  /* owners note (below the products) */
+  #cx-{{ sid }} .cx-owner { max-width: 720px; margin: 46px auto 0; padding: 22px 24px; text-align: center; border-top: 1px solid var(--cx-line); border-bottom: 1px solid var(--cx-line); }
+  #cx-{{ sid }} .cx-owner__title { margin: 0 0 6px; font-family: "Libre Baskerville", Georgia, serif; font-size: 18px; }
+  #cx-{{ sid }} .cx-owner__text, #cx-{{ sid }} .cx-owner__text p { margin: 0; font-size: 14.5px; line-height: 1.6; color: #4a3f37; }
+  #cx-{{ sid }} .cx-owner__sign { margin: 8px 0 0; font-style: italic; color: var(--cx-copper); }
+  /* set bar (clean: label, progress line with the tiers, one message, checkout) */
+  #cx-{{ sid }} .cx-set { position: fixed; z-index: 40; left: 50%; bottom: 14px; width: min(760px, calc(100% - 16px)); transform: translateX(-50%);
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 10px 10px 10px 16px; background: #fff; border: 1.5px solid var(--cx-gold); border-radius: 14px; box-shadow: 0 10px 34px rgba(20,12,6,.22); }
+  #cx-{{ sid }} .cx-set.is-bump { animation: cxBump .45s ease; }
+  @keyframes cxBump { 0% { transform: translateX(-50%); } 35% { transform: translateX(-50%) translateY(-6px) scale(1.015); } 100% { transform: translateX(-50%); } }
+  #cx-{{ sid }} .cx-set__left { display: block; min-width: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+  #cx-{{ sid }} .cx-set__top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  #cx-{{ sid }} .cx-set__label { font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+  #cx-{{ sid }} .cx-set__view { font-size: 11.5px; color: var(--cx-muted); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+  #cx-{{ sid }} .cx-set__msg { display: block; margin: 5px 0 0; font-size: 12.5px; line-height: 1.3; }
+  #cx-{{ sid }} .cx-set__msg b, #cx-{{ sid }} .cx-dr__msg b { color: var(--cx-red); }
+  #cx-{{ sid }} .cx-set__msg .ok, #cx-{{ sid }} .cx-dr__msg .ok { color: #2e6b45; font-weight: 700; }
+  #cx-{{ sid }} .cx-set__btn { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 54px; min-width: 160px; padding: 0 18px; border-radius: 10px;
+    background: linear-gradient(90deg, #15100c 0%, #2a1c12 60%, #4b3220 100%); color: #fff; font-size: 15px; font-weight: 700; line-height: 1.2; text-align: center; text-decoration: none; }
+  #cx-{{ sid }} .cx-set__btn small { font-size: 12.5px; font-weight: 500; opacity: .9; white-space: nowrap; }
+  #cx-{{ sid }} .cx-set__btn small s { opacity: .7; margin-right: 4px; }
+  #cx-{{ sid }} .cx-set__btn.is-disabled { background: #cfc8bc; pointer-events: none; }
+  /* progress line with tier stops */
+  #cx-{{ sid }} .cx-prog { position: relative; display: block; height: 30px; margin: 6px 8px 0 4px; }
+  #cx-{{ sid }} .cx-prog__track { position: absolute; left: 0; right: 0; top: 6px; height: 4px; border-radius: 4px; background: #eee5da; }
+  #cx-{{ sid }} .cx-prog__fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: linear-gradient(90deg, var(--cx-copper-2), var(--cx-copper)); transition: width .4s ease; }
+  #cx-{{ sid }} .cx-prog__stop { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
+  #cx-{{ sid }} .cx-prog__dot { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 2px solid #ddcfbf; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #fff; transition: background .25s, border-color .25s; }
+  #cx-{{ sid }} .cx-prog__lbl { margin-top: 1px; font-size: 10px; font-weight: 700; color: #9c8f84; white-space: nowrap; }
+  #cx-{{ sid }} .cx-prog__stop.is-on .cx-prog__dot { background: var(--cx-copper); border-color: var(--cx-copper); }
+  #cx-{{ sid }} .cx-prog__stop.is-on .cx-prog__lbl { color: var(--cx-copper); }
+  #cx-{{ sid }} .cx-prog__stop.is-next .cx-prog__dot { border-color: var(--cx-red); box-shadow: 0 0 0 3px rgba(168,50,27,.15); }
+  #cx-{{ sid }} .cx-prog__stop.is-next .cx-prog__lbl { color: var(--cx-red); }
+  /* copper set drawer (the copper cart) */
+  #cx-{{ sid }} .cx-dr { position: fixed; inset: 0; z-index: 2147483000; }
+  #cx-{{ sid }} .cx-dr[hidden] { display: none; }
+  #cx-{{ sid }} .cx-dr__bg { position: absolute; inset: 0; background: rgba(22,19,17,.45); animation: cxFade .25s ease; }
+  @keyframes cxFade { from { opacity: 0; } to { opacity: 1; } }
+  #cx-{{ sid }} .cx-dr__panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(440px, 100%); display: flex; flex-direction: column; background: #fbf8f4; box-shadow: -12px 0 40px rgba(20,12,6,.25); animation: cxSlide .3s ease; }
+  @keyframes cxSlide { from { transform: translateX(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+  #cx-{{ sid }} .cx-dr__head { display: flex; align-items: center; gap: 10px; padding: 16px 18px; background: #161311; }
+  #cx-{{ sid }} .cx-dr__title { margin: 0; flex: 1; font-family: "Libre Baskerville", Georgia, serif; font-size: 19px; font-weight: 700; color: var(--cx-gold); }
+  #cx-{{ sid }} .cx-dr__x { border: 0; background: rgba(255,255,255,.12); width: 32px; height: 32px; border-radius: 50%; font-size: 20px; line-height: 1; color: #fff; cursor: pointer; }
+  #cx-{{ sid }} .cx-dr__body { flex: 1; overflow-y: auto; padding: 16px 18px 8px; -webkit-overflow-scrolling: touch; }
+  #cx-{{ sid }} .cx-dr__msg { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.35; }
+  #cx-{{ sid }} .cx-dr__body .cx-prog { margin: 10px 10px 4px 6px; }
+  #cx-{{ sid }} .cx-dr__items { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--cx-line); }
+  #cx-{{ sid }} .cx-it { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--cx-line); }
+  #cx-{{ sid }} .cx-it img { width: 58px; height: 58px; object-fit: cover; border-radius: 6px; background: #ece6de; display: block; }
+  #cx-{{ sid }} .cx-it__t { margin: 0; font-size: 14px; font-weight: 500; line-height: 1.3; }
+  #cx-{{ sid }} .cx-it__p { margin: 3px 0 0; font-size: 13px; }
+  #cx-{{ sid }} .cx-it__p s { color: #8f8379; margin-right: 5px; }
+  #cx-{{ sid }} .cx-it__p span { color: var(--cx-red); font-weight: 700; }
+  #cx-{{ sid }} .cx-qty { display: flex; align-items: center; border: 1px solid var(--cx-line); border-radius: 999px; background: #fff; }
+  #cx-{{ sid }} .cx-qty button { width: 30px; height: 30px; border: 0; background: none; font-size: 16px; cursor: pointer; color: var(--cx-ink); }
+  #cx-{{ sid }} .cx-qty span { min-width: 18px; text-align: center; font-size: 13px; font-weight: 700; }
+  #cx-{{ sid }} .cx-dr__empty { padding: 18px 0; text-align: center; color: var(--cx-muted); font-size: 14px; }
+  #cx-{{ sid }} .cx-dr__other { margin: 10px 0 0; font-size: 12.5px; color: var(--cx-muted); }
+  #cx-{{ sid }} .cx-dr__sug { margin-top: 14px; padding: 12px; background: #fff; border: 1px solid var(--cx-line); border-radius: 10px; }
+  #cx-{{ sid }} .cx-dr__sugt { margin: 0 0 10px; font-size: 14px; font-weight: 700; }
+  #cx-{{ sid }} .cx-dr__sugt b { color: var(--cx-red); }
+  #cx-{{ sid }} .cx-dr__row { display: grid; grid-auto-flow: column; grid-auto-columns: 104px; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  #cx-{{ sid }} .cx-dr__row::-webkit-scrollbar { display: none; }
+  #cx-{{ sid }} .cx-up__item { display: flex; flex-direction: column; min-width: 0; }
+  #cx-{{ sid }} .cx-up__item img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 6px; background: #ece6de; }
+  #cx-{{ sid }} .cx-up__name { margin: 6px 0 0; font-size: 12.5px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #cx-{{ sid }} .cx-up__price { margin: 2px 0 6px; font-size: 12px; white-space: nowrap; }
+  #cx-{{ sid }} .cx-up__price s { display: block; color: #8f8379; font-size: 11px; }
+  #cx-{{ sid }} .cx-up__price span { color: var(--cx-red); font-weight: 700; }
+  #cx-{{ sid }} .cx-up__add { min-height: 34px; border: 0; border-radius: 6px; background: var(--cx-ink); color: #fff; font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; touch-action: manipulation; }
+  #cx-{{ sid }} .cx-up__add[disabled] { opacity: .6; }
+  #cx-{{ sid }} .cx-dr__foot { padding: 12px 18px calc(14px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--cx-line); }
+  #cx-{{ sid }} .cx-dr__save { margin: 0 0 8px; display: flex; justify-content: space-between; font-size: 13.5px; }
+  #cx-{{ sid }} .cx-dr__save b { color: #2e6b45; }
+  #cx-{{ sid }} .cx-dr__go { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; border-radius: 10px; background: linear-gradient(90deg, #15100c 0%, #2a1c12 60%, #4b3220 100%); color: #fff; font-size: 15px; font-weight: 700; text-decoration: none; }
+  #cx-{{ sid }} .cx-dr__go s { opacity: .65; font-weight: 500; }
+  #cx-{{ sid }} .cx-dr__go.is-disabled { background: #cfc8bc; pointer-events: none; }
+  #cx-{{ sid }} .cx-dr__keep { display: block; width: 100%; margin-top: 6px; padding: 8px; border: 0; background: none; font: inherit; font-size: 13px; color: var(--cx-muted); text-decoration: underline; cursor: pointer; }
+  html.cx-dr-open { overflow: hidden; }
+  #cx-{{ sid }} .cx-toast { position: fixed; left: 50%; bottom: 100px; z-index: 42; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #111; color: var(--cx-gold); border: 1px solid var(--cx-gold); border-radius: 999px; padding: 8px 16px; font-size: 13.5px; font-weight: 700; white-space: nowrap; transition: opacity .25s, transform .25s; }
+  #cx-{{ sid }} .cx-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+  html.cx-bar-on .jda-cart-knop { opacity: 0 !important; pointer-events: none !important; }
+  @media (max-width: 1199px) {
+    #cx-{{ sid }} .cx-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 899px) {
+    #cx-{{ sid }} .cx-deal { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 749px) {
+    #cx-{{ sid }} { padding: 0 12px 130px; }
+    #cx-{{ sid }} .cx-deal { margin: 12px 0 10px; padding: 12px 12px 11px; gap: 9px; border-radius: 6px; }
+    #cx-{{ sid }} .cx-deal__title { font-size: 17px; }
+    #cx-{{ sid }} .cx-deal__sub { font-size: 12.5px; margin-top: 3px; }
+    #cx-{{ sid }} .cx-deal__note { font-size: 11px; }
+    #cx-{{ sid }} .cx-tiers { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-top: 4px; }
+    #cx-{{ sid }} .cx-tier { padding: 7px 2px 6px; }
+    #cx-{{ sid }} .cx-tier__n { font-size: 9.5px; letter-spacing: .04em; }
+    #cx-{{ sid }} .cx-tier__pct { font-size: 14px; }
+    #cx-{{ sid }} .cx-tier__tag { font-size: 7.5px; padding: 1px 5px; top: -7px; }
+    #cx-{{ sid }} .cx-cat { padding: 7px 12px; font-size: 11px; }
+    #cx-{{ sid }} .cx-count { margin: 10px 0 12px; font-size: 11px; }
+    #cx-{{ sid }} .cx-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 10px; }
+    #cx-{{ sid }} .cx-card { contain-intrinsic-size: auto 320px; }
+    #cx-{{ sid }} .cx-card__title { margin-top: 9px; font-size: 14.5px; }
+    #cx-{{ sid }} .cx-card__price { font-size: 13px; margin-bottom: 9px; }
+    #cx-{{ sid }} .cx-card__best, #cx-{{ sid }} .cx-card__save { font-size: 8.5px; padding: 5px 6px; letter-spacing: .1em; }
+    #cx-{{ sid }} .cx-card__btn { min-height: 40px; font-size: 11.5px; letter-spacing: .08em; }
+    #cx-{{ sid }} .cx-set { bottom: 8px; gap: 10px; padding: 8px 8px 8px 12px; }
+    #cx-{{ sid }} .cx-set__msg { font-size: 12px; margin-top: 3px; }
+    #cx-{{ sid }} .cx-set__view { display: none; }
+    #cx-{{ sid }} .cx-dr__panel { top: auto; width: 100%; max-height: 88vh; border-radius: 16px 16px 0 0; overflow: hidden; animation: cxUp .3s ease; }
+    @keyframes cxUp { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+    #cx-{{ sid }} .cx-set__btn { min-width: 0; max-width: 140px; min-height: 50px; padding: 0 12px; font-size: 13.5px; }
+    #cx-{{ sid }} .cx-toast { bottom: 84px; }
+  }
+  @media (prefers-reduced-motion: reduce) { #cx-{{ sid }} * { transition: none !important; animation: none !important; } }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('cx-{{ sid }}');
+    if (!root) return;
+    var money = {{ shop.money_format | json }};
+    var LABELS = { add: {{ s.add_label | json }}, added: {{ s.added_label | json }}, empty: {{ s.empty_button | json }}, go: {{ s.checkout_label | json }}, all: {{ s.unlocked_text | json }} };
+    var tiers = (root.getAttribute('data-tiers') || '').split(',').map(function (t) { var p = t.split(':'); return { n: parseInt(p[0], 10), pct: (p[1] || '').trim() }; }).filter(function (t) { return t.n > 0; });
+    var maxN = tiers.length ? tiers[tiers.length - 1].n : 5;
+    var suggest = []; try { suggest = JSON.parse(root.querySelector('[data-cx-suggest]').textContent); } catch (e) {}
+    function fmt(c) { var v = (c / 100).toFixed(2).split('.'); return money.replace(/\{\{\s*\w+\s*\}\}/, v[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + v[1]).replace(/ ?AUD/, ''); }
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function pctFor(n) { var r = null; tiers.forEach(function (t) { if (n >= t.n) r = t; }); return r; }
+    function nextFor(n) { for (var i = 0; i < tiers.length; i++) if (n < tiers[i].n) return tiers[i]; return null; }
+
+    /* filter + show more */
+    var cards = [].slice.call(root.querySelectorAll('[data-cx-card]'));
+    var initial = parseInt(root.getAttribute('data-initial'), 10) || 24, step = parseInt(root.getAttribute('data-step'), 10) || 24;
+    var more = root.querySelector('[data-cx-more]'), moreN = root.querySelector('[data-cx-more-n]'), countEl = root.querySelector('[data-cx-count]');
+    var current = '', shown = initial;
+    function apply() {
+      var i = 0;
+      cards.forEach(function (c) {
+        var match = !current || c.getAttribute('data-tags').indexOf(' ' + current + ' ') > -1;
+        var hide = !match || i >= shown;
+        if (match) i++;
+        if (c.hidden !== hide) c.hidden = hide;
+      });
+      countEl.textContent = i;
+      var left = i - shown;
+      more.hidden = left <= 0;
+      moreN.textContent = Math.min(step, left);
+    }
+    root.querySelectorAll('[data-cx-cat]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        root.querySelectorAll('[data-cx-cat]').forEach(function (x) { x.classList.toggle('is-active', x === b); });
+        current = b.getAttribute('data-cx-cat'); shown = initial; apply();
+      });
+    });
+    more.addEventListener('click', function () { shown += step; apply(); });
+    apply();
+
+    /* the set (= cart). Copper pieces count for the last (copper-only) tier, every piece counts for the others. */
+    var copperIds = {}; try { JSON.parse(root.querySelector('[data-cx-copper]').textContent).forEach(function (id) { copperIds[id] = 1; }); } catch (e) {}
+    var els = { set: root.querySelector('[data-cx-set]'), label: root.querySelector('[data-cx-label]'), prog: root.querySelector('[data-cx-prog]'), msg: root.querySelector('[data-cx-msg]'), go: root.querySelector('[data-cx-checkout]'),
+      dr: root.querySelector('[data-cx-dr]'), drMsg: root.querySelector('[data-cx-dr-msg]'), drProg: root.querySelector('[data-cx-prog-dr]'), items: root.querySelector('[data-cx-items]'), other: root.querySelector('[data-cx-other]'),
+      sugWrap: root.querySelector('[data-cx-sug-wrap]'), sugTitle: root.querySelector('[data-cx-sug-title]'), sug: root.querySelector('[data-cx-sug]'), drSave: root.querySelector('[data-cx-dr-save]'), drGo: root.querySelector('[data-cx-dr-go]'), toast: root.querySelector('[data-cx-toast]') };
+    var steps = [].slice.call(root.querySelectorAll('.cx-tier'));
+    var lastKey = '', added = false, toastT = null, cartIds = {}, lastCart = { item_count: 0, items: [] };
+    function showToast(t) { els.toast.textContent = t; els.toast.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(function () { els.toast.classList.remove('is-on'); }, 2000); }
+    function counts(cart) { var a = 0, c = 0; (cart.items || []).forEach(function (i) { a += i.quantity; if (copperIds[i.product_id]) c += i.quantity; }); return { a: a, c: c }; }
+    function have(t, q) { return t === tiers[tiers.length - 1] ? q.c >= t.n : q.a >= t.n; }
+    function state(q) {
+      var cur = null, next = null;
+      tiers.forEach(function (t) { if (have(t, q)) cur = t; });
+      for (var i = 0; i < tiers.length; i++) if (!have(tiers[i], q)) { next = tiers[i]; break; }
+      var k = next ? (next === tiers[tiers.length - 1] ? next.n - q.c : next.n - q.a) : 0;
+      return { cur: cur, next: next, k: k };
+    }
+    function progHTML(q, st) {
+      var shown = Math.min(maxN, Math.max(st.cur ? st.cur.n : 0, Math.min(q.a, maxN - 1), q.c));
+      var html = '<span class="cx-prog__track"><span class="cx-prog__fill" style="width:' + (shown / maxN * 100) + '%"></span></span>';
+      tiers.forEach(function (t) {
+        var cls = (st.cur && t.n <= st.cur.n) ? ' is-on' : (st.next === t ? ' is-next' : '');
+        html += '<span class="cx-prog__stop' + cls + '" style="left:' + (t.n / maxN * 100) + '%"><span class="cx-prog__dot">' + (cls === ' is-on' ? '&#10003;' : '') + '</span><span class="cx-prog__lbl">-' + esc(t.pct) + '</span></span>';
+      });
+      return html;
+    }
+    function msgHTML(q, st, long) {
+      var piece = function (k) { return k + ' more piece' + (k === 1 ? '' : 's'); };
+      if (q.a === 0) return 'Add 2 pieces = <b>' + esc(tiers[0] ? tiers[0].pct : '') + ' off</b> your set';
+      if (!st.cur) return 'Add ' + piece(st.k) + ' = <b>' + esc(st.next.pct) + ' OFF</b>' + (long ? ' your whole set' : '');
+      if (st.next) return long ? '<span class="ok">&#10003; ' + esc(st.cur.pct) + ' off unlocked</span> · ' + piece(st.k) + ' = <b>' + esc(st.next.pct) + ' off</b>'
+        : '<span class="ok">&#10003; ' + esc(st.cur.pct) + ' off</span> · ' + st.k + ' more = <b>' + esc(st.next.pct) + ' off</b>';
+      return '<span class="ok">&#10003; ' + esc(LABELS.all) + '</span>';
+    }
+    function priceHTML(cart) { var orig = cart.original_total_price || cart.items_subtotal_price || 0; return (cart.total_discount > 0 ? '<s>' + fmt(orig) + '</s> ' : '') + fmt(cart.total_price); }
+    function renderDrawer(cart, q, st) {
+      els.drMsg.innerHTML = (added ? (st.cur ? 'Added · ' : '&#10003; Added! ') : '') + msgHTML(q, st, true);
+      els.drProg.innerHTML = progHTML(q, st);
+      var mine = (cart.items || []).filter(function (i) { return copperIds[i.product_id]; });
+      els.items.innerHTML = mine.length ? mine.map(function (i) {
+        var img = i.image ? i.image + (i.image.indexOf('?') > -1 ? '&' : '?') + 'width=120' : '';
+        return '<li class="cx-it"><img src="' + esc(img) + '" alt="" width="58" height="58" loading="lazy"><div><p class="cx-it__t">' + esc(i.product_title) + '</p><p class="cx-it__p">' + (i.original_line_price > i.final_line_price ? '<s>' + fmt(i.original_line_price) + '</s>' : '') + '<span>' + fmt(i.final_line_price) + '</span></p></div>'
+          + '<div class="cx-qty"><button type="button" data-cx-q="' + esc(i.key) + '" data-q="' + (i.quantity - 1) + '" aria-label="Remove one">&minus;</button><span>' + i.quantity + '</span><button type="button" data-cx-q="' + esc(i.key) + '" data-q="' + (i.quantity + 1) + '" aria-label="Add one">+</button></div></li>';
+      }).join('') : '<li class="cx-dr__empty">Your copper set is empty</li>';
+      var others = q.a - q.c;
+      els.other.hidden = others <= 0;
+      els.other.textContent = others > 0 ? '+ ' + others + ' other item' + (others === 1 ? '' : 's') + ' in your bag, included at checkout' : '';
+      var picks = suggest.filter(function (x) { return !cartIds[x.v]; }).slice(0, 8);
+      els.sugWrap.hidden = !picks.length || !st.next;
+      if (picks.length && st.next) {
+        els.sugTitle.innerHTML = 'Add ' + st.k + ' more piece' + (st.k === 1 ? '' : 's') + ' &amp; get <b>' + esc(st.next.pct) + ' OFF</b> your whole set';
+        els.sug.innerHTML = picks.map(function (x) {
+          return '<div class="cx-up__item"><a href="' + esc(x.u) + '"><img src="' + esc(x.i) + '" alt="" loading="lazy" width="118" height="118"></a><p class="cx-up__name">' + esc(x.t) + '</p><p class="cx-up__price">' + (x.c > x.p ? '<s>' + fmt(x.c) + '</s>' : '') + '<span>' + fmt(x.p) + '</span></p><button type="button" class="cx-up__add" data-cx-add="' + x.v + '">+ Add</button></div>';
+        }).join('');
+      }
+      var saved = (cart.original_total_price || 0) - (cart.total_price || 0);
+      els.drSave.innerHTML = saved > 0 ? '<span>You save</span><b>' + fmt(saved) + '</b>' : '';
+      if (q.a > 0) { els.drGo.classList.remove('is-disabled'); els.drGo.innerHTML = esc(LABELS.go) + ' · ' + priceHTML(cart); }
+      else { els.drGo.classList.add('is-disabled'); els.drGo.textContent = LABELS.empty; }
+    }
+    function render(cart) {
+      lastCart = cart;
+      var q = counts(cart);
+      var key = q.a + '|' + cart.total_price + '|' + (cart.items || []).map(function (i) { return i.key + ':' + i.quantity; }).join(',');
+      cartIds = {}; (cart.items || []).forEach(function (i) { cartIds[i.variant_id] = 1; });
+      if (key === lastKey && !added) return; lastKey = key;
+      var st = state(q);
+      steps.forEach(function (s, i) { s.classList.toggle('is-on', !!(st.cur && tiers[i] === st.cur)); s.classList.toggle('is-next', !!(st.next && tiers[i] === st.next)); });
+      els.label.textContent = 'Your set · ' + q.a + (q.a === 1 ? ' piece' : ' pieces');
+      els.prog.innerHTML = progHTML(q, st);
+      els.msg.innerHTML = msgHTML(q, st, false);
+      if (q.a > 0) {
+        els.go.classList.remove('is-disabled'); els.go.removeAttribute('aria-disabled');
+        els.go.innerHTML = esc(LABELS.go) + '<small>' + priceHTML(cart) + '</small>';
+      } else { els.go.classList.add('is-disabled'); els.go.setAttribute('aria-disabled', 'true'); els.go.textContent = LABELS.empty; }
+      renderDrawer(cart, q, st);
+      if (added) {
+        added = false;
+        els.set.classList.remove('is-bump'); void els.set.offsetWidth; els.set.classList.add('is-bump');
+        openDr();
+      }
+    }
+
+    /* drawer */
+    function openDr() { els.dr.hidden = false; document.documentElement.classList.add('cx-dr-open'); }
+    function closeDr() { els.dr.hidden = true; document.documentElement.classList.remove('cx-dr-open'); }
+    root.querySelector('[data-cx-open]').addEventListener('click', function () { renderDrawer(lastCart, counts(lastCart), state(counts(lastCart))); openDr(); });
+    root.querySelectorAll('[data-cx-close]').forEach(function (b) { b.addEventListener('click', closeDr); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !els.dr.hidden) closeDr(); });
+
+    var busy = false, queued = false, timer = null;
+    function load() {
+      if (busy) { queued = true; return; }
+      busy = true;
+      fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(render).catch(function () {})
+        .then(function () { busy = false; if (queued) { queued = false; load(); } });
+    }
+    function soon() { clearTimeout(timer); timer = setTimeout(load, 200); }
+    var selfUpdate = false;
+    function refreshOthers() {
+      selfUpdate = true; setTimeout(function () { selfUpdate = false; }, 1500);
+      try { document.dispatchEvent(new CustomEvent('jd-cart:refresh')); } catch (e) {}
+    }
+    root.addEventListener('click', function (e) {
+      var qb = e.target.closest('[data-cx-q]');
+      if (qb) {
+        qb.disabled = true; selfUpdate = true;
+        fetch('/cart/change.js', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ id: qb.getAttribute('data-cx-q'), quantity: Math.max(0, parseInt(qb.getAttribute('data-q'), 10)) }) })
+          .then(function (r) { return r.json(); }).then(function (c) { lastKey = ''; render(c); refreshOthers(); }).catch(function () { qb.disabled = false; });
+        return;
+      }
+      var add = e.target.closest('[data-cx-add]');
+      if (!add || add.disabled) return;
+      add.disabled = true;
+      var item = [{ id: Number(add.getAttribute('data-cx-add')), quantity: 1 }];
+      var inSheet = !!add.closest('[data-cx-dr]');
+      selfUpdate = true;
+      var req = (window.jdCart && window.jdCart.add) ? window.jdCart.add(item, { open: false }) :
+        fetch('/cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ items: item }) }).then(function (r) { if (!r.ok) throw new Error(); });
+      var orig = add.textContent;
+      Promise.resolve(req).then(function () {
+        add.classList.add('is-added'); add.textContent = inSheet ? '✓ Added' : LABELS.added; added = true; load(); refreshOthers();
+        setTimeout(function () { add.classList.remove('is-added'); add.textContent = orig; add.disabled = false; }, 1400);
+      }).catch(function () {
+        selfUpdate = false; add.disabled = false;
+        var a = add.closest('[data-cx-card], .cx-up__item'); var l = a && a.querySelector('a'); if (l) window.location.href = l.href;
+      });
+    });
+    render({ item_count: 0, total_price: 0, total_discount: 0, items: [] });
+    document.addEventListener('cart:updated', function () { if (!selfUpdate) soon(); });
+    document.addEventListener('jd-cart:rendered', function () { if (!selfUpdate) soon(); });
+    if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 1500 }); else setTimeout(load, 300);
+    document.documentElement.classList.add('cx-bar-on');
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Copper shop (clean grid)",
+  "tag": "section",
+  "class": "section-sterling-copper-shop",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection", "info": "Leave empty to use the collection of the page." },
+    { "type": "header", "content": "Deal strip" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Pre-Black Friday Sale" },
+    { "type": "text", "id": "badge", "label": "Badge next to heading", "default": "Ends today" },
+    { "type": "text", "id": "subheading", "label": "Text", "default": "Mix & match any pieces. The more you add, the more you save." },
+    { "type": "text", "id": "best_label", "label": "Label on the last step", "default": "Best value" },
+    { "type": "text", "id": "ladder_note", "label": "Note under the steps", "default": "Applied automatically at checkout · on top of the sale price" },
+    { "type": "header", "content": "Product cards" },
+    { "type": "text", "id": "count_label", "label": "Piece count label", "default": "PIECES" },
+    { "type": "range", "id": "initial_count", "label": "Pieces shown at first", "min": 8, "max": 60, "step": 4, "default": 24 },
+    { "type": "range", "id": "more_count", "label": "Pieces added by 'Show more'", "min": 8, "max": 60, "step": 4, "default": 24 },
+    { "type": "range", "id": "best_count", "label": "First pieces with the bestseller badge", "min": 0, "max": 12, "step": 1, "default": 8 },
+    { "type": "product_list", "id": "bestsellers", "label": "Extra pieces with the bestseller badge", "limit": 12 },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "BESTSELLER" },
+    { "type": "text", "id": "add_label", "label": "Add button", "default": "+ Add to set" },
+    { "type": "text", "id": "added_label", "label": "Added text", "default": "Added ✓" },
+    { "type": "text", "id": "choose_label", "label": "Button for pieces with options", "default": "Choose option" },
+    { "type": "header", "content": "Note from the owners (below the products)" },
+    { "type": "text", "id": "owner_title", "label": "Title", "default": "A note from Margaret & Charlotte" },
+    { "type": "richtext", "id": "owner_text", "label": "Text" },
+    { "type": "text", "id": "owner_sign", "label": "Signature", "default": "With love, Margaret & Charlotte" },
+    { "type": "header", "content": "Set bar" },
+    { "type": "text", "id": "tiers", "label": "Tiers (pieces:discount)", "info": "Must match the automatic discounts in Shopify. Format: 2:10%,3:15%,4:20%,5:25%", "default": "2:10%,3:15%,4:20%,5:25%" },
+    { "type": "text", "id": "unlocked_text", "label": "Text when every tier is unlocked", "default": "25% off unlocked – your best price" },
+    { "type": "text", "id": "empty_button", "label": "Button when empty", "default": "Add pieces" },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button", "default": "Checkout" },
+    { "type": "text", "id": "drawer_title", "label": "Set drawer title", "default": "Your Copper Set" },
+    { "type": "text", "id": "keep_label", "label": "Keep shopping link", "default": "Keep adding pieces" },
+    { "type": "range", "id": "suggest_max", "label": "Max price of suggested pieces ($)", "min": 50, "max": 500, "step": 10, "default": 100, "info": "Pieces above this price (e.g. the advent calendar) are not suggested as '1 more piece'." }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Bracelets" },
+        { "type": "text", "id": "tag", "label": "Product tag", "info": "Leave empty for 'all pieces'." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Copper shop (clean grid)" }]
+}
+{% endschema %}
